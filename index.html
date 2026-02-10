@@ -862,8 +862,8 @@
     </script>
 
     <script>
-        // ✅ ИСПРАВЛЕНО: убраны лишние пробелы в конце
-        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxXXarVyizwVEQffCWBtaiJxVk25Un1KM_HB-tpEPxZOJY0rECbkqk9GKJcE16tIoOr/exec';
+
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbybc6rP0-JqoyedH0rfZKgk8d-r_AiEvRRpPMjvHz-D841Y4Q3HBv_YIgx4wkVOQizv/exec';
 
         async function submitRSVP(e) {
             e.preventDefault();
@@ -885,6 +885,8 @@
             }
 
             try {
+                console.log('Отправка данных:', formData);
+
                 // Отправляем данные
                 const response = await fetch(GOOGLE_SHEETS_URL, {
                     method: 'POST',
@@ -894,7 +896,18 @@
                     body: JSON.stringify(formData)
                 });
 
+                // Выводим статус ответа
+                console.log('Статус ответа:', response.status);
+                console.log('Заголовки ответа:', Array.from(response.headers));
+
+                // Проверяем, можно ли считать ответ
+                if (!response.ok) {
+                    console.error('Ошибка сервера:', response.status, response.statusText);
+                    throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
+                }
+
                 const result = await response.json();
+                console.log('Ответ сервера:', result);
 
                 if (result.success) {
                     // Показываем красивое сообщение об успехе
@@ -907,7 +920,21 @@
 
             } catch (error) {
                 console.error('Ошибка:', error);
-                alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте ещё раз.');
+                console.error('Тип ошибки:', error.name);
+                console.error('Сообщение об ошибке:', error.message);
+
+                // Определяем тип ошибки
+                let errorMessage = 'Произошла ошибка при отправке данных. Пожалуйста, попробуйте ещё раз.';
+
+                if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                    errorMessage = 'Ошибка соединения. Проверьте интернет-соединение или попробуйте позже.';
+                } else if (error.name === 'SyntaxError' && error.message.includes('Unexpected token')) {
+                    errorMessage = 'Ошибка формата данных. Проверьте настройки скрипта.';
+                } else if (error.message.includes('CORS')) {
+                    errorMessage = 'Ошибка CORS. Проверьте настройки Google Apps Script.';
+                }
+
+                alert(errorMessage);
             }
         }
 
