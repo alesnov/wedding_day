@@ -546,6 +546,20 @@
             color: rgba(255,255,255,0.7);
         }
 
+        /* Стили для карты */
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+
+        .map-container iframe {
+            border: none;
+            display: block;
+            border-radius: 10px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .couple-names {
@@ -722,6 +736,13 @@
                                 frameborder="0">
                         </iframe>
                     </div>
+                    <!-- Кнопка маршрута -->
+                    <a href="https://yandex.ru/maps/?rtext=~55.753215,37.622504&rtt=auto"
+                       target="_blank"
+                       class="btn btn-secondary"
+                       style="display: block; margin-top: 15px; width: 100%;">
+                        <i class="fas fa-route"></i> Построить маршрут
+                    </a>
                 </div>
 
                 <div class="detail-card fade-in delay-2">
