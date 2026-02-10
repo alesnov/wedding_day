@@ -728,15 +728,20 @@
                         <br>
                         Москва, Россия
                     </p>
-                    <!-- Карта Яндекс -->
-                    <div class="map-container" style="margin-top: 20px;">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=55.830979,37.405937&z=16&source=constructor"
-                                width="100%"
-                                height="300"
-                                frameborder="0"
-                                allowfullscreen>
-                        </iframe>
-                    </div>
+
+                    <div class="map-container" style="margin-top: 20px; width: 100%; height: 300px;"></div>
+                    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+                    <script>
+                      ymaps.ready(function() {
+                        var myMap = new ymaps.Map("map", {
+                          center: [55.830979, 37.405937],
+                          zoom: 16
+                        });
+                        myMap.geoObjects.add(new ymaps.Placemark([55.830979, 37.405937], {
+                          balloonContent: 'Republic Hall'
+                        }));
+                      });
+                    </script>
                     <!-- Кнопка маршрута -->
                     <a href="https://yandex.ru/maps/-/CPQjJO2e"
                        target="_blank"
