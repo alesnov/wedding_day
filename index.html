@@ -722,18 +722,19 @@
                 <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">
                     Пожалуйста, подтвердите своё участие до 1 июня 2026 года
                 </p>
-                <form class="rsvp-form" id="rsvpForm">
+                <!-- Форма с атрибутом action для Formspree -->
+                <form class="rsvp-form" id="rsvpForm" action="https://formspree.io/f/xjgegvky" method="POST">
                     <div class="form-group">
                         <label for="name">Ваше имя *</label>
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="Имя" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="guests">Количество гостей *</label>
-                        <select id="guests" required>
+                        <select id="guests" name="Гостей" required>
                             <option value="">Выберите...</option>
                             <option value="1">1 гость</option>
                             <option value="2">2 гостя</option>
@@ -743,15 +744,15 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Телефон</label>
-                        <input type="tel" id="phone">
+                        <input type="tel" id="phone" name="Телефон">
                     </div>
                     <div class="form-group full-width">
                         <label for="message">Пожелания или особые пожелания</label>
-                        <textarea id="message" placeholder="Например: аллергии, предпочтения в еде и т.д."></textarea>
+                        <textarea id="message" name="Пожелания" placeholder="Например: аллергии, предпочтения в еде и т.д."></textarea>
                     </div>
                     <div class="form-group full-width">
                         <label for="attendance">Будете ли вы присутствовать? *</label>
-                        <select id="attendance" required>
+                        <select id="attendance" name="Присутствие" required>
                             <option value="">Выберите...</option>
                             <option value="yes">Да, с радостью!</option>
                             <option value="no">К сожалению, не смогу</option>
@@ -862,81 +863,29 @@
     </script>
 
     <script>
+        // Обработчик формы с красивым модальным окном
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('rsvpForm');
 
-        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwwy_FeR0zBlrRxHQUbiygycjY8ir9UNWd-S7xeAkBheAqFqPu7N-7fnH3h9I386iqn/exec';
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // Показываем модальное окно успеха
+                    e.preventDefault();
 
-        async function submitRSVP(e) {
-            e.preventDefault();
+                    // Получаем имя для сообщения
+                    const nameInput = document.getElementById('name');
+                    const name = nameInput ? nameInput.value : 'Дорогой гость';
 
-            // Получаем данные из формы
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                guests: document.getElementById('guests').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value,
-                attendance: document.getElementById('attendance').value
-            };
+                    // Показываем модальное окно
+                    showSuccessMessage(name);
 
-            // Проверяем обязательные поля
-            if (!formData.name || !formData.email || !formData.guests || !formData.attendance) {
-                alert('Пожалуйста, заполните все обязательные поля');
-                return;
-            }
-
-            try {
-                console.log('Отправка данных:', formData);
-
-                // Отправляем данные
-                const response = await fetch(GOOGLE_SHEETS_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
+                    // Отправляем форму через Formspree
+                    setTimeout(() => {
+                        form.submit();
+                    }, 2000);
                 });
-
-                // Выводим статус ответа
-                console.log('Статус ответа:', response.status);
-                console.log('Заголовки ответа:', Array.from(response.headers));
-
-                // Проверяем, можно ли считать ответ
-                if (!response.ok) {
-                    console.error('Ошибка сервера:', response.status, response.statusText);
-                    throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
-                }
-
-                const result = await response.json();
-                console.log('Ответ сервера:', result);
-
-                if (result.success) {
-                    // Показываем красивое сообщение об успехе
-                    showSuccessMessage(formData.name);
-                    // Очищаем форму
-                    document.getElementById('rsvpForm').reset();
-                } else {
-                    throw new Error(result.error || 'Ошибка при отправке');
-                }
-
-            } catch (error) {
-                console.error('Ошибка:', error);
-                console.error('Тип ошибки:', error.name);
-                console.error('Сообщение об ошибке:', error.message);
-
-                // Определяем тип ошибки
-                let errorMessage = 'Произошла ошибка при отправке данных. Пожалуйста, попробуйте ещё раз.';
-
-                if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-                    errorMessage = 'Ошибка соединения. Проверьте интернет-соединение или попробуйте позже.';
-                } else if (error.name === 'SyntaxError' && error.message.includes('Unexpected token')) {
-                    errorMessage = 'Ошибка формата данных. Проверьте настройки скрипта.';
-                } else if (error.message.includes('CORS')) {
-                    errorMessage = 'Ошибка CORS. Проверьте настройки Google Apps Script.';
-                }
-
-                alert(errorMessage);
             }
-        }
+        });
 
         function showSuccessMessage(name) {
             // Создаём модальное окно успеха
@@ -979,15 +928,9 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 2000);
         }
-
-        // Подключаем обработчик к форме
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('rsvpForm');
-            if (form) {
-                form.addEventListener('submit', submitRSVP);
-            }
-        });
     </script>
 </body>
 </html>
+
+
 
