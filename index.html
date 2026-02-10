@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Артур & Диляра - Свадьба</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #e6c8d5;
+            --secondary-color: #f8e1e9;
+            --accent-color: #d4a5b5;
+            --text-color: #5a4a42;
+            --gold-color: #d4af37;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(212, 167, 181, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(230, 200, 213, 0.15) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.2;
+        }
+
+        .wedding-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold-color);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+
+        .wedding-tagline {
+            font-size: 1.5rem;
+            margin: 30px 0;
+            color: var(--text-color);
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 20px 10px;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: var(--white);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold-color);
+        }
+
+        .couple-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .couple-text {
+            flex: 1;
+        }
+
+        .couple-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .couple-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .couple-photos {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .photo-item {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-item:first-child {
+            grid-row: span 2;
+        }
+
+        /* Details Section */
+        .details {
+            padding: 100px 0;
+            background: var(--secondary-color);
+        }
+
+        .details-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .detail-icon {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .detail-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin: 20px 0;
+        }
+
+        .detail-info {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .detail-info strong {
+            color: var(--accent-color);
+            display: block;
+            margin: 10px 0;
+            font-size: 1.3rem;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .rsvp-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--secondary-color);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .rsvp-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--text-color);
+            transform: translateY(-3px);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: var(--secondary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Gifts Section */
+        .gifts {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .gifts-info {
+            max-width: 800px;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+
+        .gifts-info p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .gift-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .gift-option {
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            min-width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gift-option i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .gift-option h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gold-color);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .couple-names {
+                font-size: 3.5rem;
+            }
+
+            .wedding-date {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .couple-info {
+                flex-direction: column;
+            }
+
+            .couple-photos {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-item:first-child {
+                grid-row: span 1;
+            }
+
+            .rsvp-form {
+                grid-template-columns: 1fr;
+            }
+
+            .gift-options {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .couple-names {
+                font-size: 2.8rem;
+            }
+
+            .wedding-date {
+                font-size: 1.8rem;
+            }
+
+            .wedding-tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .rsvp-container {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Artur & Diliara</a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#details">Детали</a></li>
+                    <li><a href="#rsvp">RSVP</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="couple-names">Артур & Диляра</h1>
+                <div class="wedding-date">29 августа 2026 года</div>
+                <p class="wedding-tagline">Приглашаем вас разделить с нами радость нашего особенного дня</p>
+                <a href="#rsvp" class="btn">Подтвердить участие</a>
+                <a href="#details" class="btn btn-secondary">Подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Наша история</h2>
+            <div class="couple-info">
+                <div class="couple-text fade-in delay-1">
+                    <h3>Как всё начиналось</h3>
+                    <p>Мы встретились в университете пять лет назад. С первого взгляда между нами проскочила искра, и с тех пор мы неразлучны.</p>
+                    <p>Наш путь был полон приключений, смеха и взаимной поддержки. Мы преодолели многое вместе и теперь готовы начать новый главный этап нашей жизни.</p>
+                    <p>Мы верим, что любовь - это не только чувство, но и ежедневный выбор быть вместе, поддерживать и вдохновлять друг друга.</p>
+                </div>
+                <div class="couple-photos fade-in delay-2">
+                    <div class="photo-item">Фото Артура</div>
+                    <div class="photo-item">Фото Диляры</div>
+                    <div class="photo-item">Наше фото вместе</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details" id="details">
+        <div class="container">
+            <h2 class="section-title fade-in">Детали свадьбы</h2>
+            <div class="details-container">
+                <div class="detail-card fade-in">
+                    <i class="fas fa-calendar-alt detail-icon"></i>
+                    <h3 class="detail-title">Дата и время</h3>
+                    <p class="detail-info">
+                        <strong>29 августа 2026 года</strong>
+                        Церемония: 16:00
+                        <br>
+                        Приём гостей: 18:00
+                    </p>
+                </div>
+
+                <div class="detail-card fade-in delay-1">
+                    <i class="fas fa-map-marker-alt detail-icon"></i>
+                    <h3 class="detail-title">Место проведения</h3>
+                    <p class="detail-info">
+                        <strong>Отель "Гранд Палас"</strong>
+                        ул. Свадебная, 123
+                        <br>
+                        Москва, Россия
+                    </p>
+                </div>
+
+                <div class="detail-card fade-in delay-2">
+                    <i class="fas fa-gift detail-icon"></i>
+                    <h3 class="detail-title">Дресс-код</h3>
+                    <p class="detail-info">
+                        <strong>Элегантный вечерний</strong>
+                        Для мужчин: костюм
+                        <br>
+                        Для женщин: вечернее платье
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp" id="rsvp">
+        <div class="container">
+            <h2 class="section-title fade-in">Подтвердите участие</h2>
+            <div class="rsvp-container fade-in">
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">
+                    Пожалуйста, подтвердите своё участие до 1 июня 2026 года
+                </p>
+                <form class="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Количество гостей *</label>
+                        <select id="guests" required>
+                            <option value="">Выберите...</option>
+                            <option value="1">1 гость</option>
+                            <option value="2">2 гостя</option>
+                            <option value="3">3 гостя</option>
+                            <option value="4">4 гостя</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Пожелания или особые пожелания</label>
+                        <textarea id="message" placeholder="Например: аллергии, предпочтения в еде и т.д."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="attendance">Будете ли вы присутствовать? *</label>
+                        <select id="attendance" required>
+                            <option value="">Выберите...</option>
+                            <option value="yes">Да, с радостью!</option>
+                            <option value="no">К сожалению, не смогу</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить RSVP</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Наша галерея</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">Фото 1</div>
+                <div class="gallery-item fade-in delay-1">Фото 2</div>
+                <div class="gallery-item fade-in delay-2">Фото 3</div>
+                <div class="gallery-item fade-in">Фото 4</div>
+                <div class="gallery-item fade-in delay-1">Фото 5</div>
+                <div class="gallery-item fade-in delay-2">Фото 6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts Section -->
+    <section class="gifts">
+        <div class="container">
+            <h2 class="section-title fade-in">Подарки</h2>
+            <div class="gifts-info fade-in">
+                <p>Ваше присутствие - лучший подарок для нас! Но если вы всё же хотите нас порадовать, мы будем благодарны за:</p>
+                <div class="gift-options">
+                    <div class="gift-option fade-in">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Финансовый подарок</h4>
+                        <p>Поможет нам в организации медового месяца</p>
+                    </div>
+                    <div class="gift-option fade-in delay-1">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Предметы для дома</h4>
+                        <p>Посуда, текстиль, техника для нашего нового дома</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Artur & Diliara</div>
+                <p>С любовью, Алексей и Анна</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+                <p class="copyright">
+                    &copy; 2026 Артур & Диляра. Все права защищены.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Update active link
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Handle form submission
+        document.querySelector('.rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за подтверждение участия! Мы свяжемся с вами для уточнения деталей.');
+            this.reset();
+        });
+
+        // Scroll to update active navigation link
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + 80;
+
+            sections.forEach(section => {
+                if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                    const id = section.getAttribute('id');
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Initialize with first section active
+        document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+    </script>
+</body>
+</html>
