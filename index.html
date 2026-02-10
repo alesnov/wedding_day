@@ -722,7 +722,7 @@
                 <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">
                     Пожалуйста, подтвердите своё участие до 1 июня 2026 года
                 </p>
-                <form class="rsvp-form">
+                <form class="rsvp-form" id="rsvpForm">
                     <div class="form-group">
                         <label for="name">Ваше имя *</label>
                         <input type="text" id="name" required>
@@ -866,6 +866,106 @@
 
         // Initialize with first section active
         document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+    </script>
+
+    <script>
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwl-koJ-yfFHS_T3UIy8gKs4MVn1dMbIeWofqYcm6McrnsEBPYvVAuzmQk89Jm83rvv/exec';
+
+    async function submitRSVP(e) {
+        e.preventDefault();
+
+        // Получаем данные из формы
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            guests: document.getElementById('guests').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value,
+            attendance: document.getElementById('attendance').value
+        };
+
+        // Проверяем обязательные поля
+        if (!formData.name || !formData.email || !formData.guests || !formData.attendance) {
+            alert('Пожалуйста, заполните все обязательные поля');
+            return;
+        }
+
+        try {
+            // Отправляем данные
+            const response = await fetch(GOOGLE_SHEETS_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Показываем красивое сообщение об успехе
+                showSuccessMessage(formData.name);
+                // Очищаем форму
+                document.getElementById('rsvpForm').reset();
+            } else {
+                throw new Error(result.error || 'Ошибка при отправке');
+            }
+
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте ещё раз.');
+        }
+    }
+
+    function showSuccessMessage(name) {
+        // Создаём модальное окно успеха
+        const successDiv = document.createElement('div');
+        successDiv.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 9999;
+            max-width: 500px;
+            width: 90%;
+        `;
+
+        successDiv.innerHTML = `
+            <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+            <h2 style="color: #d4a5b5; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Спасибо, ${name}!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 25px;">Ваше подтверждение успешно отправлено. Мы свяжемся с вами для уточнения деталей.</p>
+            <button onclick="this.parentElement.remove()" style="
+                background: #d4a5b5;
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 50px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                font-weight: 600;
+            ">Закрыть</button>
+        `;
+
+        document.body.appendChild(successDiv);
+
+        // Скролл наверх через 2 секунды
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 2000);
+    }
+
+    // Подключаем обработчик к форме
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('rsvpForm');
+        if (form) {
+            form.addEventListener('submit', submitRSVP);
+        }
+    });
     </script>
 </body>
 </html>
