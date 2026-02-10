@@ -666,7 +666,13 @@
                 </div>
                 <div class="couple-photos fade-in delay-2">
                     <div class="photo-item">
-                        <img src="images/about/art.jpeg" alt="Фото Артура" class="photo-img">
+                        <img src="images/about/art.jpeg"
+                             srcset="images/about/art-480.jpeg 480w,
+                                    images/about/art-768.jpeg 768w,
+                                    images/about/art-1200.jpeg 1200w"
+                             sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
+                             alt="Фото Артур"
+                             class="photo-img">
                     <div class="photo-item">Фото Диляры</div>
                         <img src="images/about/diliara.HEIC" alt="Фото Диляры" class="photo-img">
                     <div class="photo-item">Наше фото вместе</div>
