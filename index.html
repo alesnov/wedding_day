@@ -839,13 +839,6 @@
             });
         });
 
-        // Handle form submission
-        document.querySelector('.rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо за подтверждение участия! Мы свяжемся с вами для уточнения деталей.');
-            this.reset();
-        });
-
         // Scroll to update active navigation link
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
@@ -869,6 +862,7 @@
     </script>
 
     <script>
+        // ✅ ИСПРАВЛЕНО: убраны лишние пробелы в конце
         const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwl-koJ-yfFHS_T3UIy8gKs4MVn1dMbIeWofqYcm6McrnsEBPYvVAuzmQk89Jm83rvv/exec';
 
         async function submitRSVP(e) {
@@ -969,3 +963,4 @@
     </script>
 </body>
 </html>
+
