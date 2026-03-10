@@ -604,22 +604,6 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* QR CODE */
-.qr-text {
-    font-size: 1.1rem;
-    color: #777;
-    margin-bottom: 30px;
-    line-height: 1.8;
-}
-
-.qr-code {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    display: inline-block;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
 /* КОНТАКТЫ */
 .contact-info {
     margin-bottom: 30px;
