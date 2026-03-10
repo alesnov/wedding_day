@@ -6,11 +6,13 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("click", function initMusic() {
-    if (music.paused) {
-        music.play().then(() => musicBtn.classList.add("playing")).catch(() => {});
-    }
-    document.removeEventListener("click", initMusic);
-}, { once: true });
+    music.play().then(() => {
+        if(musicBtn){
+            musicBtn.classList.add("playing")
+        }
+    }).catch(()=>{})
+    document.removeEventListener("click", initMusic)
+}, { once:true })
 
 function toggleMusic() {
     if (music.paused) {

@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Артур и Диляра | Свадьба 29.08.2026</title>
 
+    <meta name="description"
+c   ontent="Свадьба Артура и Диляры — 29 августа 2026. Приглашение, программа дня и RSVP.">
+
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" as="image" href="images/about/we.jpeg">
 </head>
 <body>
 
@@ -23,12 +26,12 @@
 
     <!-- БЛОК 1: HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <img src="images/about/we.jpeg" alt="Артур и Диляра" class="hero-photo">
-            <p class="hero-invitation">Приглашаем вас на главное событие<br>в нашей жизни — день свадьбы!</p>
-            <h1 class="names">Артур <span class="ampersand">&</span> Диляра</h1>
-            <div class="date">29 августа 2026</div>
-        </div>
+        <h1>Артур и Диляра</h1>
+        <p>29 августа 2026</p>
+        <img src="images/about/we.jpeg"
+        alt="Артур и Диляра"
+        loading="lazy"
+        class="hero-photo">
     </section>
 
     <!-- БЛОК 2: ПРИГЛАШЕНИЕ + КАЛЕНДАРЬ -->
@@ -197,14 +200,14 @@
 
     <!-- БЛОК 7: ГАЛЕРЕЯ -->
     <section class="container fade">
-        <h2 class="section-title">Наша галерея</h2>
+        <h2>Галерея</h2>
         <div class="gallery">
-            <img src="images/gallery/1.jpeg" alt="Фото 1">
-            <img src="images/gallery/2.jpeg" alt="Фото 2">
-            <img src="images/gallery/3.jpeg" alt="Фото 3">
-            <img src="images/gallery/4.jpeg" alt="Фото 4">
-            <img src="images/gallery/5.jpeg" alt="Фото 5">
-            <img src="images/gallery/6.jpeg" alt="Фото 6">
+        <img src="images/gallery/we1.jpeg" alt="Артур и Диляра" loading="lazy">
+        <img src="images/gallery/we2.jpeg" alt="Артур и Диляра" loading="lazy">
+        <img src="images/gallery/we3.jpeg" alt="Артур и Диляра" loading="lazy">
+        <img src="images/gallery/we4.jpeg" alt="Артур и Диляра" loading="lazy">
+        <img src="images/gallery/we5.jpeg" alt="Артур и Диляра" loading="lazy">
+        <img src="images/gallery/we6.jpeg" alt="Артур и Диляра" loading="lazy">
         </div>
     </section>
 
@@ -220,7 +223,7 @@
             <div class="table">
                 <h3>Стол 1</h3>
                 <div class="table-guests">
-                    <p>Анна и Игорь<br>
+                    <p>Родители жениха<br>
                     Мария<br>
                     Дмитрий и Елена</p>
                 </div>
@@ -229,7 +232,7 @@
             <div class="table">
                 <h3>Стол 2</h3>
                 <div class="table-guests">
-                    <p>Сергей и Ольга<br>
+                    <p>Родители невесты<br>
                     Алексей<br>
                     Наталья и Андрей</p>
                 </div>
@@ -238,7 +241,7 @@
             <div class="table">
                 <h3>Стол 3</h3>
                 <div class="table-guests">
-                    <p>Родители жениха<br>
+                    <p>Друзья1<br>
                     Близкие друзья</p>
                 </div>
             </div>
@@ -246,7 +249,24 @@
             <div class="table">
                 <h3>Стол 4</h3>
                 <div class="table-guests">
-                    <p>Родители невесты<br>
+                    <p>Друзья2<br>
+                    Алексей<br>
+                    Наталья и Андрей</p>
+                </div>
+            </div>
+
+            <div class="table">
+                <h3>Стол 5</h3>
+                <div class="table-guests">
+                    <p>Друзья3<br>
+                    Близкие друзья</p>
+                </div>
+            </div>
+
+            <div class="table">
+                <h3>Стол 6</h3>
+                <div class="table-guests">
+                    <p>Друзья4<br>
                     Близкие друзья</p>
                 </div>
             </div>
@@ -310,13 +330,14 @@
 
     <!-- БЛОК 10: QR КОД -->
     <section class="container fade">
-        <h2 class="section-title">Поделитесь фото</h2>
-        <p class="qr-text">
-            Сканируйте QR-код и загрузите ваши фотографии со свадьбы<br>
-            в нашу общую галерею
-        </p>
+        <h2>Поделитесь фото</h2>
+        <p>Сканируйте QR код и загрузите ваши фотографии со свадьбы<br>
+            в нашу общую галерею</p>
         <div class="qr-code">
-            <img src="images/gallery/qr.jpeg" alt="QR код для загрузки фото" width="200">
+            <img src="images/qr-photo.png"
+            alt="QR код для загрузки фото"
+            width="200"
+            loading="lazy">
         </div>
     </section>
 
@@ -348,16 +369,17 @@
             С любовью и нетерпением ждем встречи<br>
             в этот особенный день
         </p>
-        <div class="thanks-names">Артур & Диляра</div>
+        <div class="thanks-names">Артур и Диляра</div>
         <div class="date">29 августа 2026</div>
     </section>
 
     <!-- Scripts -->
-    <script src="js/countdown.js"></script>
-    <script src="js/gallery.js"></script>
-    <script src="js/guests.js"></script>
+    <script src="js/countdown.js" defer></script>
+    <script src="js/guests.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/music.js" defer></script>
     <script src="js/animations.js"></script>
-    <script src="js/music.js"></script>
+
 </body>
 </html>
 

@@ -1,26 +1,43 @@
-const imgs = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".close-lightbox");
+const images = document.querySelectorAll(".gallery img")
 
-imgs.forEach(img => {
-    img.onclick = () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add("active");
-        document.body.style.overflow = "hidden";
-    };
-});
+const lightbox = document.getElementById("lightbox")
+const lightboxImg = document.getElementById("lightbox-img")
+const closeBtn = document.querySelector(".close-lightbox")
 
-function closeLightbox() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "auto";
+
+if(images){
+
+images.forEach(img => {
+
+img.addEventListener("click", () => {
+
+lightbox.style.display="flex"
+
+lightboxImg.src = img.src
+
+})
+
+})
+
 }
 
-closeBtn.onclick = closeLightbox;
-lightbox.onclick = (e) => {
-    if (e.target === lightbox) closeLightbox();
-};
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-});
+function closeLightbox(){
+
+if(lightbox){
+lightbox.style.display="none"
+}
+
+}
+
+if(closeBtn){
+closeBtn.onclick = closeLightbox
+}
+
+document.addEventListener("keydown", e=>{
+
+if(e.key==="Escape"){
+closeLightbox()
+}
+
+})
 
