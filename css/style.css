@@ -7,7 +7,7 @@ color:#444;
 
 .hero{
 height:100vh;
-background:url("images/about/we.jpeg") center/cover;
+background:url("/images/about/we.jpeg") center/cover;
 display:flex;
 justify-content:center;
 align-items:center;
