@@ -1,14 +1,14 @@
-const imgs=document.querySelectorAll(".gallery img")
-const box=document.getElementById("lightbox")
-const boxImg=document.getElementById("lightbox-img")
+const upload=document.getElementById("photoUpload")
+const gallery=document.getElementById("photoGallery")
 
-imgs.forEach(img=>{
-img.onclick=()=>{
-box.style.display="flex"
-boxImg.src=img.src
-}
-})
+upload.onchange=e=>{
 
-box.onclick=()=>{
-box.style.display="none"
+let file=e.target.files[0]
+
+let img=document.createElement("img")
+
+img.src=URL.createObjectURL(file)
+
+gallery.appendChild(img)
+
 }

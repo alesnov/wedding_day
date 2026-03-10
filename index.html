@@ -1,232 +1,207 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Артур и Диляра</title>
 
 <link rel="stylesheet" href="css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
 </head>
 
 <body>
 
-<div id="petals"></div>
+<!-- 3D background -->
+<canvas id="three-bg"></canvas>
 
-<div class="music-btn" onclick="toggleMusic()">🎵</div>
 
-<audio id="music" loop>
+<!-- OPENING INVITATION -->
+
+<div id="opening">
+
+<div class="card">
+
+<h1>Приглашение</h1>
+
+<p>Артур & Диляра</p>
+
+<button onclick="enterSite()">Открыть</button>
+
+</div>
+
+</div>
+
+
+<audio id="music" autoplay loop>
 <source src="music/wedding.mp3">
 </audio>
 
+
 <section class="hero">
 
-<div class="hero-content">
+<h1>Артур & Диляра</h1>
 
-<h1 class="names">Артур & Диляра</h1>
-
-<div class="hero-text">
-Приглашаем вас на нашу свадьбу
-</div>
-
-<div class="date">29 августа 2026</div>
-
-</div>
+<p>29 августа 2026</p>
 
 </section>
 
-<section class="container fade">
 
-<h2>Дорогие гости</h2>
-
-<p>
-Мы будем счастливы разделить этот день с вами.
-</p>
-
-</section>
-
-<section class="container fade">
+<section>
 
 <h2>До свадьбы осталось</h2>
 
 <div class="countdown">
 
-<div><span id="days"></span><p>дней</p></div>
-<div><span id="hours"></span><p>часов</p></div>
-<div><span id="minutes"></span><p>минут</p></div>
-<div><span id="seconds"></span><p>секунд</p></div>
+<div><span id="days"></span>дней</div>
+<div><span id="hours"></span>часов</div>
+<div><span id="minutes"></span>минут</div>
+<div><span id="seconds"></span>секунд</div>
 
 </div>
 
 </section>
 
-<section class="container fade">
 
-<h2>Программа дня</h2>
+<!-- RSVP -->
 
-<div class="timeline">
-
-<div class="event">
-<h3>15:00</h3>
-<p>Сбор гостей</p>
-</div>
-
-<div class="event">
-<h3>16:00</h3>
-<p>Церемония</p>
-</div>
-
-<div class="event">
-<h3>17:00</h3>
-<p>Банкет</p>
-</div>
-
-<div class="event">
-<h3>21:00</h3>
-<p>Первый танец</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="container fade">
-
-<h2>Пожелания</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Подарки</h3>
-Будем рады вкладу в наше свадебное путешествие
-</div>
-
-<div class="card">
-<h3>Цветы</h3>
-Если сомневаетесь с букетом — лучшим подарком будет конверт
-</div>
-
-<div class="card">
-<h3>Дети</h3>
-Мы очень любим детей, но формат вечера предполагает взрослую атмосферу.
-Будем благодарны если по возможности вы проведёте этот вечер без малышей.
-</div>
-
-</div>
-
-</section>
-
-<section class="container fade">
-
-<h2>Галерея</h2>
-
-<div class="gallery">
-
-<img src="images/gallery/we1.jpeg">
-<img src="images/gallery/we2.jpeg">
-<img src="images/gallery/we3.jpeg">
-<img src="images/gallery/we4.jpeg">
-
-</div>
-
-</section>
-
-<div id="lightbox">
-<img id="lightbox-img">
-</div>
-
-<section class="container fade">
-
-<h2>Рассадка гостей</h2>
-
-<div class="tables">
-
-<div class="table">
-<h3>Стол 1</h3>
-<p>Анна<br>Иван<br>Мария</p>
-</div>
-
-<div class="table">
-<h3>Стол 2</h3>
-<p>Сергей<br>Ольга<br>Алексей</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="container fade">
+<section>
 
 <h2>Подтвердите присутствие</h2>
 
-<form class="rsvp">
+<form id="rsvp-form">
 
-<input placeholder="Ваше имя">
+<label>Будете ли вы присутствовать</label>
 
-<select>
-<option>Вы придете?</option>
+<select id="presence">
 <option>Да</option>
 <option>Нет</option>
 </select>
 
-<select id="guests">
 
-<option value="1">Я один</option>
-<option value="2">Я +1</option>
-<option value="3">Я +2</option>
+<label>Что будете пить</label>
+
+<select>
+
+<option>вино красное</option>
+<option>вино белое</option>
+<option>водка</option>
+<option>коньяк</option>
+<option>виски</option>
+<option>не пью</option>
 
 </select>
 
+
+<label>С кем придете</label>
+
+<select id="guests">
+
+<option value="1">я один</option>
+<option value="2">я +1</option>
+<option value="3">я +2</option>
+<option value="4">я +3</option>
+
+</select>
+
+
 <div id="extraGuests"></div>
 
-<button>Отправить</button>
+<button type="submit">
+Отправить ответ
+</button>
 
 </form>
 
 </section>
 
-<section class="container fade">
+
+<!-- МЕСТО ПРОВЕДЕНИЯ -->
+
+<section>
+
+<div class="detail-card">
+
+<h3>Место проведения</h3>
+
+<p>
+
+<strong>Republic Hall</strong><br>
+Волоколамское ш., 124<br>
+Москва, Россия
+
+</p>
+
+<div class="map-container">
+
+<iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=37.405937,55.830979&z=16&source=constructor"
+width="100%"
+height="300"
+frameborder="0">
+</iframe>
+
+</div>
+
+<a href="https://yandex.ru/maps/-/CPQjJO2e"
+target="_blank"
+class="route-btn">
+
+Построить маршрут
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- РАССАДКА -->
+
+<section>
+
+<h2>Рассадка гостей</h2>
+
+<div id="seating-map"></div>
+
+</section>
+
+
+<!-- ФОТО ГОСТЕЙ -->
+
+<section>
 
 <h2>Поделитесь фото</h2>
 
-<p>
-Сканируйте QR и загрузите фото со свадьбы
-</p>
+<p>Отсканируйте QR</p>
 
-<img src="images/qr.png" width="200">
+<!-- QR код указывается здесь -->
 
-</section>
+<img src="images/qr-photo.jpeg" width="200">
 
-<section class="container fade">
+<div class="upload">
 
-<h2>Место проведения</h2>
+<input type="file" id="photoUpload">
 
-<iframe
-src="https://yandex.ru/map-widget/v1/?um=constructor%3A9c0c94e3c1f"
-width="100%"
-height="400">
-</iframe>
+</div>
+
+<div id="photoGallery"></div>
 
 </section>
 
-<section class="container">
 
-<h2>
-Спасибо что будете с нами ❤️
-</h2>
-
-</section>
-
+<script src="js/app.js"></script>
 <script src="js/countdown.js"></script>
+<script src="js/rsvp.js"></script>
+<script src="js/seating.js"></script>
 <script src="js/gallery.js"></script>
-<script src="js/guests.js"></script>
-<script src="js/animations.js"></script>
-<script src="js/petals.js"></script>
-<script src="js/music.js"></script>
+<script src="js/three-bg.js"></script>
 
 </body>
 </html>
