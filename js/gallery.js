@@ -1,43 +1,28 @@
-const images = document.querySelectorAll(".gallery img")
+const weddingDate = new Date("Aug 29 2026 15:00:00");
 
-const lightbox = document.getElementById("lightbox")
-const lightboxImg = document.getElementById("lightbox-img")
-const closeBtn = document.querySelector(".close-lightbox")
+function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
 
+    if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+    }
 
-if(images){
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-images.forEach(img => {
-
-img.addEventListener("click", () => {
-
-lightbox.style.display="flex"
-
-lightboxImg.src = img.src
-
-})
-
-})
-
+    document.getElementById("days").innerText = String(days).padStart(2, '0');
+    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
 }
 
-function closeLightbox(){
-
-if(lightbox){
-lightbox.style.display="none"
-}
-
-}
-
-if(closeBtn){
-closeBtn.onclick = closeLightbox
-}
-
-document.addEventListener("keydown", e=>{
-
-if(e.key==="Escape"){
-closeLightbox()
-}
-
-})
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
