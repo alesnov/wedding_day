@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,7 +43,7 @@ height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:url("images/about/we.jpeg") center/cover;
+background:url("images/about/we.jpeg") center/cover fixed;
 color:white;
 position:relative;
 }
@@ -75,9 +76,9 @@ margin-top:20px;
 .countdown{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:25px;
+flex-wrap:wrap;
 margin-top:30px;
-font-size:26px;
 }
 
 .count-box{
@@ -85,6 +86,7 @@ background:white;
 padding:20px;
 border-radius:10px;
 min-width:90px;
+font-size:22px;
 }
 
 .details-grid{
@@ -131,6 +133,23 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
 .rsvp-form{
 max-width:600px;
 margin:auto;
@@ -168,7 +187,17 @@ font-size:26px;
 font-family:Playfair Display;
 }
 
-/* лепестки */
+.timeline{
+max-width:700px;
+margin:auto;
+text-align:left;
+}
+
+.timeline div{
+margin:20px 0;
+padding-left:20px;
+border-left:3px solid #c08da0;
+}
 
 .petal{
 position:fixed;
@@ -191,8 +220,6 @@ transform:translateY(100vh);
 
 <body>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-content">
@@ -209,11 +236,7 @@ transform:translateY(100vh);
 
 </section>
 
-<!-- INVITATION -->
-
 <section>
-
-<div class="container">
 
 <h2 class="title">Дорогие и любимые!</h2>
 
@@ -231,11 +254,7 @@ transform:translateY(100vh);
 29 августа 2026
 </div>
 
-</div>
-
 </section>
-
-<!-- COUNTDOWN -->
 
 <section>
 
@@ -258,11 +277,29 @@ transform:translateY(100vh);
 минут
 </div>
 
+<div class="count-box">
+<div id="seconds"></div>
+секунд
+</div>
+
 </div>
 
 </section>
 
-<!-- DETAILS -->
+<section>
+
+<h2 class="title">Наша история</h2>
+
+<div class="timeline">
+
+<div>Мы познакомились в интернете</div>
+<div>Наша первая встреча</div>
+<div>Путешествия и приключения</div>
+<div>Предложение руки и сердца</div>
+
+</div>
+
+</section>
 
 <section>
 
@@ -271,36 +308,26 @@ transform:translateY(100vh);
 <div class="details-grid">
 
 <div class="card">
-
 <h3>Дата</h3>
-
 29 августа 2026
 15:00 церемония
-
 </div>
 
 <div class="card">
-
 <h3>Место</h3>
-
 Republic Hall
 Москва
-
 </div>
 
 <div class="card">
-
 <h3>Дресс-код</h3>
-
 Элегантный вечерний
 
 <div class="palette">
-
 <div class="color" style="background:#e6c8d5"></div>
 <div class="color" style="background:#f3dfe6"></div>
 <div class="color" style="background:#d8a6b7"></div>
 <div class="color" style="background:#ffffff;border:1px solid #ccc"></div>
-
 </div>
 
 </div>
@@ -308,8 +335,6 @@ Republic Hall
 </div>
 
 </section>
-
-<!-- WISHES -->
 
 <section>
 
@@ -321,8 +346,8 @@ Republic Hall
 
 <h3>Финансовый подарок</h3>
 
-Поможет нам отправиться
-в свадебное путешествие
+Если вы захотите порадовать нас подарком,
+мы будем благодарны **за вклад в наше свадебное путешествие**.
 
 </div>
 
@@ -330,7 +355,9 @@ Republic Hall
 
 <h3>Цветы</h3>
 
-Будем рады красивым букетам
+Мы будем рады красивым букетам,
+но если вы сомневаетесь в выборе —
+**лучшим подарком будет конверт**.
 
 </div>
 
@@ -338,8 +365,12 @@ Republic Hall
 
 <h3>Дети</h3>
 
-Будем рады разделить праздник
-вместе с вашими детьми
+Мы очень любим детей,
+но формат праздника предполагает
+взрослую атмосферу.
+
+По возможности будем благодарны,
+если вы проведёте этот вечер без малышей ❤️
 
 </div>
 
@@ -347,11 +378,9 @@ Republic Hall
 
 </section>
 
-<!-- GALLERY -->
-
 <section>
 
-<h2 class="title">Наша история</h2>
+<h2 class="title">Наша галерея</h2>
 
 <div class="gallery-grid">
 
@@ -364,7 +393,9 @@ Republic Hall
 
 </section>
 
-<!-- RSVP -->
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img">
+</div>
 
 <section>
 
@@ -406,8 +437,6 @@ Republic Hall
 
 </section>
 
-<!-- CONTACTS -->
-
 <section>
 
 <h2 class="title">Контакты</h2>
@@ -422,47 +451,39 @@ Republic Hall
 
 </section>
 
-<!-- THANKS -->
-
 <section>
 
 <div class="thanks">
-
 Спасибо что разделите этот день вместе с нами ❤️
-
 </div>
 
 </section>
 
 <script>
 
-/* countdown */
-
-const weddingDate = new Date("Aug 29 2026")
+const weddingDate=new Date("Aug 29 2026 15:00")
 
 function updateCountdown(){
 
-const now = new Date()
+const now=new Date()
 
-const diff = weddingDate - now
+const diff=weddingDate-now
 
-const days = Math.floor(diff / (1000*60*60*24))
-
-const hours = Math.floor(diff / (1000*60*60)%24)
-
-const minutes = Math.floor(diff / (1000*60)%60)
+const days=Math.floor(diff/(1000*60*60*24))
+const hours=Math.floor(diff/(1000*60*60)%24)
+const minutes=Math.floor(diff/(1000*60)%60)
+const seconds=Math.floor(diff/1000%60)
 
 document.getElementById("days").innerText=days
 document.getElementById("hours").innerText=hours
 document.getElementById("minutes").innerText=minutes
+document.getElementById("seconds").innerText=seconds
 
 }
 
 setInterval(updateCountdown,1000)
 
 updateCountdown()
-
-/* dynamic guests */
 
 const guests=document.getElementById("guests")
 const extra=document.getElementById("extraGuests")
@@ -495,16 +516,28 @@ extra.innerHTML+=`
 
 })
 
-/* petals animation */
+const images=document.querySelectorAll(".gallery-grid img")
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
 
-for(let i=0;i<20;i++){
+images.forEach(img=>{
+img.onclick=()=>{
+lightbox.style.display="flex"
+lightboxImg.src=img.src
+}
+})
+
+lightbox.onclick=()=>{
+lightbox.style.display="none"
+}
+
+for(let i=0;i<25;i++){
 
 const petal=document.createElement("div")
 
 petal.className="petal"
 
 petal.style.left=Math.random()*100+"%"
-
 petal.style.animationDuration=5+Math.random()*5+"s"
 
 document.body.appendChild(petal)
