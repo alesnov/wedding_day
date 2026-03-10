@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Падающие лепестки -->
-    <div id="petals"></div>
 
     <!-- Кнопка музыки -->
     <div class="music-btn" onclick="toggleMusic()" id="musicBtn">
@@ -19,7 +17,7 @@
     </div>
 
     <!-- Аудио -->
-    <audio id="music" loop autoplay>
+    <audio id="music" loop>
         <source src="music/wedding.mp3" type="audio/mpeg">
     </audio>
 
@@ -54,7 +52,6 @@
                     <div class="calendar-day-header">Пт</div>
                     <div class="calendar-day-header">Сб</div>
                     <div class="calendar-day-header">Вс</div>
-                    <!-- Дни календаря -->
                     <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
                     <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div>
                     <div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div>
@@ -152,7 +149,7 @@
                 Волоколамское ш., 124<br>
                 Москва</p>
                 <div class="map-container">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=37.405937,55.830979&z=16" width="100%" height="250" frameborder="0"></iframe>
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=37.405937,55.830979&z=16" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <a href="https://yandex.ru/maps/-/CPQjJO2e" target="_blank" class="btn">
                     <i class="fas fa-route"></i> Построить маршрут
@@ -202,12 +199,12 @@
     <section class="container fade">
         <h2 class="section-title">Наша галерея</h2>
         <div class="gallery">
-            <img src="images/gallery/we1.jpeg" alt="Фото 1">
-            <img src="images/gallery/we2.jpeg" alt="Фото 2">
-            <img src="images/gallery/we3.jpeg" alt="Фото 3">
-            <img src="images/gallery/we4.jpeg" alt="Фото 4">
-            <img src="images/gallery/we5.jpeg" alt="Фото 5">
-            <img src="images/gallery/we6.jpeg" alt="Фото 6">
+            <img src="images/gallery/1.jpeg" alt="Фото 1">
+            <img src="images/gallery/2.jpeg" alt="Фото 2">
+            <img src="images/gallery/3.jpeg" alt="Фото 3">
+            <img src="images/gallery/4.jpeg" alt="Фото 4">
+            <img src="images/gallery/5.jpeg" alt="Фото 5">
+            <img src="images/gallery/6.jpeg" alt="Фото 6">
         </div>
     </section>
 
@@ -319,7 +316,7 @@
             в нашу общую галерею
         </p>
         <div class="qr-code">
-            <img src="images/qr.jpeg" alt="QR код для загрузки фото" width="200">
+            <img src="images/gallery/qr.jpeg" alt="QR код для загрузки фото" width="200">
         </div>
     </section>
 
@@ -363,5 +360,6 @@
     <script src="js/music.js"></script>
 </body>
 </html>
+
 
 

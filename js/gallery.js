@@ -17,16 +17,10 @@ function closeLightbox() {
 }
 
 closeBtn.onclick = closeLightbox;
-
 lightbox.onclick = (e) => {
-    if (e.target === lightbox) {
-        closeLightbox();
-    }
+    if (e.target === lightbox) closeLightbox();
 };
-
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        closeLightbox();
-    }
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
 });
 

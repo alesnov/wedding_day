@@ -8,7 +8,6 @@ if (guestsSelect) {
 
         if (count > 1) {
             extraGuestsDiv.classList.add("active");
-
             for (let i = 1; i < count; i++) {
                 const guestSection = document.createElement("div");
                 guestSection.className = "guest-section";
@@ -39,7 +38,6 @@ if (guestsSelect) {
     });
 }
 
-// Обработка формы
 const rsvpForm = document.getElementById("rsvpForm");
 if (rsvpForm) {
     rsvpForm.addEventListener("submit", function(e) {

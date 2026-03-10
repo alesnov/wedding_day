@@ -1,37 +1,29 @@
-const guests=document.getElementById("guests")
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
 
-const extra=document.getElementById("extraGuests")
+window.addEventListener("load", () => {
+    music.play().catch(() => {});
+});
 
-guests.onchange=()=>{
+document.addEventListener("click", function initMusic() {
+    if (music.paused) {
+        music.play().then(() => musicBtn.classList.add("playing")).catch(() => {});
+    }
+    document.removeEventListener("click", initMusic);
+}, { once: true });
 
-extra.innerHTML=""
-
-let count=guests.value-1
-
-for(let i=0;i<count;i++){
-
-extra.innerHTML+=`
-
-<div class="guest-card">
-
-<input placeholder="Фамилия и имя">
-
-<select>
-
-<option>вино красное</option>
-<option>вино белое</option>
-<option>водка</option>
-<option>коньяк</option>
-<option>виски</option>
-<option>не пью</option>
-
-</select>
-
-</div>
-
-`
-
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        musicBtn.classList.add("playing");
+    } else {
+        music.pause();
+        musicBtn.classList.remove("playing");
+    }
 }
 
-}
+music.addEventListener("play", () => musicBtn.classList.add("playing"));
+music.addEventListener("pause", () => musicBtn.classList.remove("playing"));
+
+
 
