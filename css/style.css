@@ -498,35 +498,6 @@ body {
     color: #b8a99a;
 }
 
-/* РАССАДКА */
-.tables {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.table {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.table h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: #b8a99a;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #f0e6e6;
-}
-
-.table-guests p {
-    color: #444;
-    line-height: 2;
-}
-
 /* RSVP */
 .rsvp-text {
     font-size: 1.1rem;
