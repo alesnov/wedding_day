@@ -14,11 +14,12 @@ body{
 margin:0;
 font-family:Montserrat;
 background:#faf6f7;
-color:#4a4a4a;
+color:#444;
+overflow-x:hidden;
 }
 
 section{
-padding:80px 20px;
+padding:90px 20px;
 text-align:center;
 }
 
@@ -27,60 +28,63 @@ max-width:1100px;
 margin:auto;
 }
 
-h1,h2,h3{
+h1,h2{
 font-family:Playfair Display;
 }
 
 .title{
 font-size:42px;
-margin-bottom:30px;
-}
-
-.subtitle{
-font-size:20px;
-line-height:1.7;
-max-width:700px;
-margin:auto;
+margin-bottom:40px;
 }
 
 .hero{
-background:white;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:url("images/about/we.jpeg") center/cover;
+color:white;
+position:relative;
 }
 
-.hero img{
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
 width:100%;
-max-width:700px;
-border-radius:20px;
+height:100%;
+background:rgba(0,0,0,0.35);
 }
 
-.invite-text{
-margin-top:30px;
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-text{
 font-size:22px;
 }
 
 .names{
 font-family:Great Vibes;
-font-size:70px;
+font-size:90px;
 margin-top:20px;
 }
 
-.calendar{
-margin-top:40px;
-display:inline-block;
-border:2px solid #d9a8b7;
-border-radius:12px;
+.countdown{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:30px;
+font-size:26px;
+}
+
+.count-box{
+background:white;
 padding:20px;
-}
-
-.calendar .month{
-font-weight:600;
-margin-bottom:10px;
-}
-
-.calendar .date{
-font-size:40px;
-color:#c27c95;
-font-weight:700;
+border-radius:10px;
+min-width:90px;
 }
 
 .details-grid{
@@ -93,11 +97,11 @@ margin-top:40px;
 .card{
 background:white;
 padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-.color-palette{
+.palette{
 display:flex;
 justify-content:center;
 gap:10px;
@@ -110,47 +114,76 @@ height:30px;
 border-radius:4px;
 }
 
-.wishes-grid{
+.gallery-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-margin-top:40px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.gallery-grid img{
+width:100%;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
 }
 
 .rsvp-form{
 max-width:600px;
 margin:auto;
 display:grid;
-gap:15px;
+gap:14px;
 }
 
 input,select{
 padding:12px;
 border-radius:6px;
 border:1px solid #ccc;
+font-size:15px;
 }
 
 button{
 padding:14px;
+background:#c08da0;
 border:none;
-background:#c27c95;
 color:white;
 border-radius:25px;
-font-size:16px;
 cursor:pointer;
+font-size:16px;
 }
 
-.contact-links a{
+.contacts a{
 display:block;
 margin:10px;
-color:#c27c95;
-font-weight:600;
 text-decoration:none;
+color:#c08da0;
+font-weight:600;
 }
 
-.thank{
-font-size:24px;
+.thanks{
+font-size:26px;
 font-family:Playfair Display;
+}
+
+/* лепестки */
+
+.petal{
+position:fixed;
+top:-10px;
+width:12px;
+height:12px;
+background:#f1c6d5;
+border-radius:50%;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+}
 }
 
 </style>
@@ -158,15 +191,13 @@ font-family:Playfair Display;
 
 <body>
 
-<!-- БЛОК 1 -->
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="container">
+<div class="hero-content">
 
-<img src="images/about/we.jpeg">
-
-<div class="invite-text">
+<div class="hero-text">
 Приглашаем вас на главное событие в нашей жизни — День свадьбы
 </div>
 
@@ -175,32 +206,63 @@ font-family:Playfair Display;
 </div>
 
 </div>
+
 </section>
 
-
-<!-- БЛОК 2 -->
+<!-- INVITATION -->
 
 <section>
 
+<div class="container">
+
 <h2 class="title">Дорогие и любимые!</h2>
 
-<p class="subtitle">
+<p style="max-width:700px;margin:auto;font-size:18px;line-height:1.7">
+
 Скоро случится очень важное и счастливое для нас событие — наша свадьба.
 Мы очень хотим быть в кругу самых любимых и близких в этот особенный день.
 С большим удовольствием приглашаем разделить с нами эту радость!
+
 </p>
 
-<h3 style="margin-top:40px;">Дата свадьбы</h3>
+<h3 style="margin-top:40px">Дата свадьбы</h3>
 
-<div class="calendar">
-<div class="month">Август</div>
-<div class="date">29</div>
+<div style="font-size:48px;color:#c08da0;margin-top:10px">
+29 августа 2026
+</div>
+
 </div>
 
 </section>
 
+<!-- COUNTDOWN -->
 
-<!-- БЛОК 3 -->
+<section>
+
+<h2 class="title">До свадьбы осталось</h2>
+
+<div class="countdown">
+
+<div class="count-box">
+<div id="days"></div>
+дней
+</div>
+
+<div class="count-box">
+<div id="hours"></div>
+часов
+</div>
+
+<div class="count-box">
+<div id="minutes"></div>
+минут
+</div>
+
+</div>
+
+</section>
+
+<!-- DETAILS -->
 
 <section>
 
@@ -209,26 +271,34 @@ font-family:Playfair Display;
 <div class="details-grid">
 
 <div class="card">
+
 <h3>Дата</h3>
-<p>29 августа 2026</p>
-<p>Церемония 15:00</p>
+
+29 августа 2026
+15:00 церемония
+
 </div>
 
 <div class="card">
+
 <h3>Место</h3>
-<p>Republic Hall</p>
-<p>Москва</p>
+
+Republic Hall
+Москва
+
 </div>
 
 <div class="card">
+
 <h3>Дресс-код</h3>
-<p>Элегантный вечерний</p>
 
-<div class="color-palette">
+Элегантный вечерний
 
-<div class="color" style="background:#d9a8b7"></div>
+<div class="palette">
+
 <div class="color" style="background:#e6c8d5"></div>
 <div class="color" style="background:#f3dfe6"></div>
+<div class="color" style="background:#d8a6b7"></div>
 <div class="color" style="background:#ffffff;border:1px solid #ccc"></div>
 
 </div>
@@ -239,36 +309,62 @@ font-family:Playfair Display;
 
 </section>
 
-
-<!-- БЛОК 4 -->
+<!-- WISHES -->
 
 <section>
 
 <h2 class="title">Пожелания</h2>
 
-<div class="wishes-grid">
+<div class="details-grid">
 
 <div class="card">
+
 <h3>Финансовый подарок</h3>
-<p>Поможет нам отправиться в свадебное путешествие</p>
+
+Поможет нам отправиться
+в свадебное путешествие
+
 </div>
 
 <div class="card">
+
 <h3>Цветы</h3>
-<p>Будем рады букетам вместо подарков</p>
+
+Будем рады красивым букетам
+
 </div>
 
 <div class="card">
+
 <h3>Дети</h3>
-<p>Мы будем рады разделить праздник вместе с вами и вашими детьми</p>
+
+Будем рады разделить праздник
+вместе с вашими детьми
+
 </div>
 
 </div>
 
 </section>
 
+<!-- GALLERY -->
 
-<!-- БЛОК 5 RSVP -->
+<section>
+
+<h2 class="title">Наша история</h2>
+
+<div class="gallery-grid">
+
+<img src="images/gallery/we1.jpeg">
+<img src="images/gallery/we2.jpeg">
+<img src="images/gallery/we3.jpeg">
+<img src="images/gallery/we4.jpeg">
+
+</div>
+
+</section>
+
+<!-- RSVP -->
 
 <section>
 
@@ -276,10 +372,10 @@ font-family:Playfair Display;
 
 <form class="rsvp-form">
 
-<input placeholder="Ваше имя" required>
+<input placeholder="Ваше имя">
 
 <select>
-<option>Будете ли вы присутствовать?</option>
+<option>Будете ли вы присутствовать</option>
 <option>Да</option>
 <option>Нет</option>
 </select>
@@ -310,16 +406,15 @@ font-family:Playfair Display;
 
 </section>
 
-
-<!-- БЛОК 6 -->
+<!-- CONTACTS -->
 
 <section>
 
 <h2 class="title">Контакты</h2>
 
-<div class="contact-links">
+<div class="contacts">
 
-<a href="#">Telegram организатора</a>
+<a href="#">Telegram</a>
 <a href="#">WhatsApp</a>
 <a href="#">Группа свадьбы</a>
 
@@ -327,19 +422,47 @@ font-family:Playfair Display;
 
 </section>
 
-
-<!-- БЛОК 7 -->
+<!-- THANKS -->
 
 <section>
 
-<div class="thank">
+<div class="thanks">
+
 Спасибо что разделите этот день вместе с нами ❤️
+
 </div>
 
 </section>
 
-
 <script>
+
+/* countdown */
+
+const weddingDate = new Date("Aug 29 2026")
+
+function updateCountdown(){
+
+const now = new Date()
+
+const diff = weddingDate - now
+
+const days = Math.floor(diff / (1000*60*60*24))
+
+const hours = Math.floor(diff / (1000*60*60)%24)
+
+const minutes = Math.floor(diff / (1000*60)%60)
+
+document.getElementById("days").innerText=days
+document.getElementById("hours").innerText=hours
+document.getElementById("minutes").innerText=minutes
+
+}
+
+setInterval(updateCountdown,1000)
+
+updateCountdown()
+
+/* dynamic guests */
 
 const guests=document.getElementById("guests")
 const extra=document.getElementById("extraGuests")
@@ -357,7 +480,6 @@ extra.innerHTML+=`
 <input placeholder="Фамилия и имя гостя">
 
 <select>
-
 <option>Что будет пить</option>
 <option>вино красное</option>
 <option>вино белое</option>
@@ -365,7 +487,6 @@ extra.innerHTML+=`
 <option>коньяк</option>
 <option>виски</option>
 <option>не пью</option>
-
 </select>
 
 `
@@ -374,12 +495,23 @@ extra.innerHTML+=`
 
 })
 
+/* petals animation */
+
+for(let i=0;i<20;i++){
+
+const petal=document.createElement("div")
+
+petal.className="petal"
+
+petal.style.left=Math.random()*100+"%"
+
+petal.style.animationDuration=5+Math.random()*5+"s"
+
+document.body.appendChild(petal)
+
+}
+
 </script>
 
 </body>
 </html>
-
-
-
-
-
