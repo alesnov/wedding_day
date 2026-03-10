@@ -1,25 +1,30 @@
-const weddingDate=new Date("Aug 29 2026 15:00")
+const weddingDate = new Date("Aug 29 2026 15:00:00");
 
-function update(){
+function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
 
-const now=new Date()
+    if (diff <= 0) {
+        document.getElementById("days").innerText = "0";
+        document.getElementById("hours").innerText = "0";
+        document.getElementById("minutes").innerText = "0";
+        document.getElementById("seconds").innerText = "0";
+        return;
+    }
 
-const diff=weddingDate-now
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-document.getElementById("days").innerText=
-Math.floor(diff/(1000*60*60*24))
-
-document.getElementById("hours").innerText=
-Math.floor(diff/(1000*60*60)%24)
-
-document.getElementById("minutes").innerText=
-Math.floor(diff/(1000*60)%60)
-
-document.getElementById("seconds").innerText=
-Math.floor(diff/1000%60)
-
+    document.getElementById("days").innerText = String(days).padStart(2, '0');
+    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
 }
 
-setInterval(update,1000)
-update()
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+
 

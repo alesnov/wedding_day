@@ -1,16 +1,32 @@
-const upload=document.getElementById("photoUpload")
+const imgs = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close-lightbox");
 
-const gallery=document.getElementById("photoGallery")
+imgs.forEach(img => {
+    img.onclick = () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    };
+});
 
-upload.onchange=e=>{
-
-let file=e.target.files[0]
-
-let img=document.createElement("img")
-
-img.src=URL.createObjectURL(file)
-
-gallery.appendChild(img)
-
+function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "auto";
 }
+
+closeBtn.onclick = closeLightbox;
+
+lightbox.onclick = (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+    }
+});
 

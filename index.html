@@ -1,222 +1,367 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Артур и Диляра | Свадьба 29.08.2026</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Артур и Диляра</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-
-<canvas id="three-bg"></canvas>
-
-<!-- OPENING INVITATION -->
-
-<div id="opening">
-
-<div class="invitation-card">
-
-<h1>Приглашение</h1>
-
-<p>Артур & Диляра</p>
-
-<button onclick="enterSite()">
-Открыть приглашение
-</button>
-
-</div>
-
-</div>
-
-<!-- MUSIC -->
-
-<audio id="music" autoplay loop>
-<source src="music/wedding.mp3">
-</audio>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>Артур & Диляра</h1>
-
-<p>29 августа 2026</p>
-
-</section>
-
-<!-- COUNTDOWN -->
-
-<section>
-
-<h2>До свадьбы осталось</h2>
-
-<div class="countdown">
-
-<div>
-<span id="days"></span>
-<p>дней</p>
-</div>
-
-<div>
-<span id="hours"></span>
-<p>часов</p>
-</div>
-
-<div>
-<span id="minutes"></span>
-<p>минут</p>
-</div>
-
-<div>
-<span id="seconds"></span>
-<p>секунд</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- RSVP -->
-
-<section>
-
-<h2>Подтвердите присутствие</h2>
-
-<form id="rsvp-form">
-
-<label>Будете ли вы присутствовать</label>
-
-<select>
-
-<option>Да</option>
-<option>Нет</option>
-
-</select>
-
-<label>Что будете пить</label>
-
-<select>
-
-<option>вино красное</option>
-<option>вино белое</option>
-<option>водка</option>
-<option>коньяк</option>
-<option>виски</option>
-<option>не пью</option>
-
-</select>
-
-<label>С кем придете</label>
-
-<select id="guests">
-
-<option value="1">я один</option>
-<option value="2">я +1</option>
-<option value="3">я +2</option>
-<option value="4">я +3</option>
-
-</select>
-
-<div id="extraGuests"></div>
-
-<button type="submit">
-Отправить ответ
-</button>
-
-</form>
-
-</section>
-
-<!-- МЕСТО ПРОВЕДЕНИЯ -->
-
-<section>
-
-<div class="detail-card">
-
-<h3>Место проведения</h3>
-
-<p>
-
-<strong>Republic Hall</strong>
-<br>
-Волоколамское ш., 124
-<br>
-Москва, Россия
-
-</p>
-
-<div class="map-container">
-
-<iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=37.405937,55.830979&z=16&source=constructor"
-width="100%"
-height="300"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-<a href="https://yandex.ru/maps/-/CPQjJO2e"
-target="_blank"
-class="route-btn">
-
-Построить маршрут
-
-</a>
-
-</div>
-
-</section>
-
-<!-- SEATING -->
-
-<section>
-
-<h2>Рассадка гостей</h2>
-
-<div id="seating-map"></div>
-
-</section>
-
-<!-- QR PHOTO -->
-
-<section>
-
-<h2>Поделитесь фото</h2>
-
-<p>Сканируйте QR код</p>
-
-<!-- УКАЗАНИЕ QR КОДА -->
-
-<img src="images/qr-photo.jpeg" width="200">
-
-<div class="upload">
-
-<input type="file" id="photoUpload">
-
-</div>
-
-<div id="photoGallery"></div>
-
-</section>
-
-<script src="js/app.js"></script>
-<script src="js/countdown.js"></script>
-<script src="js/rsvp.js"></script>
-<script src="js/seating.js"></script>
-<script src="js/gallery.js"></script>
-<script src="js/three-bg.js"></script>
-
+    <!-- Падающие лепестки -->
+    <div id="petals"></div>
+
+    <!-- Кнопка музыки -->
+    <div class="music-btn" onclick="toggleMusic()" id="musicBtn">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <!-- Аудио -->
+    <audio id="music" loop autoplay>
+        <source src="music/wedding.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- БЛОК 1: HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/about/we.jpeg" alt="Артур и Диляра" class="hero-photo">
+            <p class="hero-invitation">Приглашаем вас на главное событие<br>в нашей жизни — день свадьбы!</p>
+            <h1 class="names">Артур <span class="ampersand">&</span> Диляра</h1>
+            <div class="date">29 августа 2026</div>
+        </div>
+    </section>
+
+    <!-- БЛОК 2: ПРИГЛАШЕНИЕ + КАЛЕНДАРЬ -->
+    <section class="container fade">
+        <h2 class="section-title">Дорогие и любимые!</h2>
+        <p class="invitation-text">
+            Скоро случится очень важное и счастливое для нас событие — наша свадьба.<br>
+            Мы очень хотим быть в кругу самых любимых и близких в этот особенный день.<br><br>
+            С большим удовольствием приглашаем разделить с нами эту радость!
+        </p>
+
+        <div class="calendar-section">
+            <h3 class="calendar-title">Дата свадьбы</h3>
+            <div class="calendar">
+                <div class="calendar-month">Август <span class="calendar-year">2026</span></div>
+                <div class="calendar-grid">
+                    <div class="calendar-day-header">Пн</div>
+                    <div class="calendar-day-header">Вт</div>
+                    <div class="calendar-day-header">Ср</div>
+                    <div class="calendar-day-header">Чт</div>
+                    <div class="calendar-day-header">Пт</div>
+                    <div class="calendar-day-header">Сб</div>
+                    <div class="calendar-day-header">Вс</div>
+                    <!-- Дни календаря -->
+                    <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
+                    <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div><div class="calendar-day">13</div><div class="calendar-day">14</div><div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div><div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div><div class="calendar-day">22</div><div class="calendar-day">23</div><div class="calendar-day">24</div><div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
+                    <div class="calendar-day highlighted">29</div>
+                    <div class="calendar-day">30</div><div class="calendar-day">31</div><div class="calendar-day"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 3: COUNTDOWN -->
+    <section class="container fade">
+        <h2 class="section-title">До свадьбы осталось</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span id="days">0</span>
+                <p>дней</p>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">0</span>
+                <p>часов</p>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">0</span>
+                <p>минут</p>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">0</span>
+                <p>секунд</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 4: ПРОГРАММА ДНЯ -->
+    <section class="container fade">
+        <h2 class="section-title">Программа дня</h2>
+        <div class="timeline">
+            <div class="event">
+                <div class="event-time">15:00</div>
+                <div class="event-content">
+                    <h3>Сбор гостей</h3>
+                    <p>Welcome-зона, легкие закуски и шампанское</p>
+                </div>
+            </div>
+            <div class="event">
+                <div class="event-time">16:00</div>
+                <div class="event-content">
+                    <h3>Церемония</h3>
+                    <p>Торжественная регистрация брака</p>
+                </div>
+            </div>
+            <div class="event">
+                <div class="event-time">17:00</div>
+                <div class="event-content">
+                    <h3>Банкет</h3>
+                    <p>Праздничный ужин и поздравления</p>
+                </div>
+            </div>
+            <div class="event">
+                <div class="event-time">19:00</div>
+                <div class="event-content">
+                    <h3>Первый танец</h3>
+                    <p>Танцевальная программа и развлечения</p>
+                </div>
+            </div>
+            <div class="event">
+                <div class="event-time">22:00</div>
+                <div class="event-content">
+                    <h3>Завершение вечера</h3>
+                    <p>Свадебный торт и финальные фотографии</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 5: ДЕТАЛИ -->
+    <section class="container fade">
+        <h2 class="section-title">Детали свадьбы</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <i class="fas fa-calendar-alt detail-icon"></i>
+                <h3>Дата и время</h3>
+                <p><strong>29 августа 2026</strong><br>
+                Сбор гостей: 15:00<br>
+                Церемония: 16:00</p>
+            </div>
+
+            <div class="detail-card">
+                <i class="fas fa-map-marker-alt detail-icon"></i>
+                <h3>Место проведения</h3>
+                <p><strong>Republic Hall</strong><br>
+                Волоколамское ш., 124<br>
+                Москва</p>
+                <div class="map-container">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=37.405937,55.830979&z=16" width="100%" height="250" frameborder="0"></iframe>
+                </div>
+                <a href="https://yandex.ru/maps/-/CPQjJO2e" target="_blank" class="btn">
+                    <i class="fas fa-route"></i> Построить маршрут
+                </a>
+            </div>
+
+            <div class="detail-card">
+                <i class="fas fa-tshirt detail-icon"></i>
+                <h3>Дресс-код</h3>
+                <p>Элегантный вечерний стиль</p>
+                <div class="dress-code-colors">
+                    <div class="color-square" style="background: #2c3e50;" title="Темно-синий"></div>
+                    <div class="color-square" style="background: #8b7355;" title="Коричневый"></div>
+                    <div class="color-square" style="background: #b8a99a;" title="Бежевый"></div>
+                    <div class="color-square" style="background: #d4af37;" title="Золотой"></div>
+                    <div class="color-square" style="background: #f5f1ed;" title="Кремовый"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 6: ПОЖЕЛАНИЯ -->
+    <section class="container fade">
+        <h2 class="section-title">Пожелания</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-money-bill-wave card-icon"></i>
+                <h3>Финансовый подарок</h3>
+                <p>Будем рады вкладу в наше свадебное путешествие и совместное будущее</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-flower card-icon"></i>
+                <h3>Цветы</h3>
+                <p>Если сомневаетесь с букетом — лучшим подарком будет конверт</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-child card-icon"></i>
+                <h3>Дети</h3>
+                <p>Мы очень любим детей, но формат вечера предполагает взрослую атмосферу. Будем благодарны, если вы проведёте этот вечер без малышей.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 7: ГАЛЕРЕЯ -->
+    <section class="container fade">
+        <h2 class="section-title">Наша галерея</h2>
+        <div class="gallery">
+            <img src="images/gallery/we1.jpeg" alt="Фото 1">
+            <img src="images/gallery/we2.jpeg" alt="Фото 2">
+            <img src="images/gallery/we3.jpeg" alt="Фото 3">
+            <img src="images/gallery/we4.jpeg" alt="Фото 4">
+            <img src="images/gallery/we5.jpeg" alt="Фото 5">
+            <img src="images/gallery/we6.jpeg" alt="Фото 6">
+        </div>
+    </section>
+
+    <div id="lightbox">
+        <img id="lightbox-img" src="" alt="Увеличенное фото">
+        <span class="close-lightbox">&times;</span>
+    </div>
+
+    <!-- БЛОК 8: РАССАДКА ГОСТЕЙ -->
+    <section class="container fade">
+        <h2 class="section-title">Рассадка гостей</h2>
+        <div class="tables">
+            <div class="table">
+                <h3>Стол 1</h3>
+                <div class="table-guests">
+                    <p>Анна и Игорь<br>
+                    Мария<br>
+                    Дмитрий и Елена</p>
+                </div>
+            </div>
+
+            <div class="table">
+                <h3>Стол 2</h3>
+                <div class="table-guests">
+                    <p>Сергей и Ольга<br>
+                    Алексей<br>
+                    Наталья и Андрей</p>
+                </div>
+            </div>
+
+            <div class="table">
+                <h3>Стол 3</h3>
+                <div class="table-guests">
+                    <p>Родители жениха<br>
+                    Близкие друзья</p>
+                </div>
+            </div>
+
+            <div class="table">
+                <h3>Стол 4</h3>
+                <div class="table-guests">
+                    <p>Родители невесты<br>
+                    Близкие друзья</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 9: RSVP -->
+    <section class="container fade">
+        <h2 class="section-title">Подтвердите присутствие</h2>
+        <p class="rsvp-text">Пожалуйста, подтвердите своё участие до 1 июня 2026 года</p>
+
+        <form class="rsvp" id="rsvpForm" action="https://formspree.io/f/xjgegvky" method="POST">
+            <div class="form-group">
+                <label for="name">Ваше имя *</label>
+                <input type="text" id="name" name="Имя" required placeholder="Введите ваше имя">
+            </div>
+
+            <div class="form-group">
+                <label for="attendance">Будете ли вы присутствовать? *</label>
+                <select id="attendance" name="Присутствие" required>
+                    <option value="">Выберите...</option>
+                    <option value="yes">Да, с радостью!</option>
+                    <option value="no">К сожалению, не смогу</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="drink">Что будете пить? *</label>
+                <select id="drink" name="Напиток" required>
+                    <option value="">Выберите...</option>
+                    <option value="red_wine">Вино красное</option>
+                    <option value="white_wine">Вино белое</option>
+                    <option value="vodka">Водка</option>
+                    <option value="cognac">Коньяк</option>
+                    <option value="whiskey">Виски</option>
+                    <option value="none">Не пью</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="guests">С кем придете? *</label>
+                <select id="guests" name="Количество_гостей" required>
+                    <option value="">Выберите...</option>
+                    <option value="1">Я один</option>
+                    <option value="2">Я +1</option>
+                    <option value="3">Я +2</option>
+                    <option value="4">Я +3</option>
+                </select>
+            </div>
+
+            <div id="extraGuests" class="extra-guests"></div>
+
+            <div class="form-group full-width">
+                <label for="message">Пожелания или особые пожелания</label>
+                <textarea id="message" name="Пожелания" placeholder="Например: аллергии, предпочтения в еде и т.д."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Отправить ответ</button>
+        </form>
+    </section>
+
+    <!-- БЛОК 10: QR КОД -->
+    <section class="container fade">
+        <h2 class="section-title">Поделитесь фото</h2>
+        <p class="qr-text">
+            Сканируйте QR-код и загрузите ваши фотографии со свадьбы<br>
+            в нашу общую галерею
+        </p>
+        <div class="qr-code">
+            <img src="images/qr.jpeg" alt="QR код для загрузки фото" width="200">
+        </div>
+    </section>
+
+    <!-- БЛОК 11: КОНТАКТЫ -->
+    <section class="container fade">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contact-info">
+            <p>По всем вопросам обращайтесь к нам:</p>
+            <p class="contact-person">
+                <strong>Артур</strong><br>
+                <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+            </p>
+            <p class="contact-person">
+                <strong>Диляра</strong><br>
+                <a href="tel:+78888888888">+7 (888) 888-88-88</a>
+            </p>
+        </div>
+        <a href="#" class="wedding-group-link">
+            <i class="fas fa-users"></i> Группа свадьбы
+        </a>
+    </section>
+
+    <!-- БЛОК 12: БЛАГОДАРНОСТЬ -->
+    <section class="container">
+        <h2 class="thanks-title">
+            Спасибо что будете с нами ❤️
+        </h2>
+        <p class="thanks-text">
+            С любовью и нетерпением ждем встречи<br>
+            в этот особенный день
+        </p>
+        <div class="thanks-names">Артур & Диляра</div>
+        <div class="date">29 августа 2026</div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/countdown.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/guests.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/music.js"></script>
 </body>
 </html>
+
 
