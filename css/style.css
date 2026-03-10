@@ -1,15 +1,30 @@
 body{
 
+margin:0;
+font-family:Montserrat;
 background:#0b1c3a;
 color:white;
-font-family:Montserrat;
-margin:0;
+
+}
+
+#three-bg{
+
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+
+}
+
+section{
+
+padding:80px 20px;
+text-align:center;
 
 }
 
 .hero{
 
-text-align:center;
 padding:120px 20px;
 
 }
@@ -26,28 +41,32 @@ font-size:60px;
 display:flex;
 justify-content:center;
 gap:40px;
-font-size:28px;
 
 }
 
 #opening{
 
 position:fixed;
-background:#0b1c3a;
+top:0;
+left:0;
 width:100%;
 height:100%;
+
+background:#08142b;
+
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
+
+z-index:1000;
 
 }
 
-.card{
+.invitation-card{
 
 background:#132c5c;
 padding:60px;
 border-radius:20px;
-text-align:center;
 
 }
 
@@ -55,10 +74,32 @@ button{
 
 background:#3a6cf4;
 border:none;
-padding:15px 30px;
+padding:14px 28px;
 color:white;
 border-radius:10px;
 cursor:pointer;
+
+}
+
+.detail-card{
+
+background:#132c5c;
+padding:30px;
+border-radius:12px;
+max-width:500px;
+margin:auto;
+
+}
+
+.route-btn{
+
+display:block;
+background:#3a6cf4;
+padding:12px;
+margin-top:15px;
+border-radius:10px;
+text-decoration:none;
+color:white;
 
 }
 
@@ -88,13 +129,12 @@ border-radius:10px;
 
 }
 
-.route-btn{
+.guest-card{
 
-display:block;
-background:#3a6cf4;
-padding:12px;
-text-align:center;
-margin-top:15px;
-border-radius:8px;
+background:#132c5c;
+padding:15px;
+margin:10px;
+border-radius:10px;
 
 }
+

@@ -1,4 +1,5 @@
 const upload=document.getElementById("photoUpload")
+
 const gallery=document.getElementById("photoGallery")
 
 upload.onchange=e=>{
@@ -12,3 +13,4 @@ img.src=URL.createObjectURL(file)
 gallery.appendChild(img)
 
 }
+

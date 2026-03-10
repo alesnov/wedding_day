@@ -4,14 +4,13 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Артур и Диляра</title>
 
 <link rel="stylesheet" href="css/style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
@@ -19,31 +18,33 @@
 
 <body>
 
-<!-- 3D background -->
 <canvas id="three-bg"></canvas>
-
 
 <!-- OPENING INVITATION -->
 
 <div id="opening">
 
-<div class="card">
+<div class="invitation-card">
 
 <h1>Приглашение</h1>
 
 <p>Артур & Диляра</p>
 
-<button onclick="enterSite()">Открыть</button>
+<button onclick="enterSite()">
+Открыть приглашение
+</button>
 
 </div>
 
 </div>
 
+<!-- MUSIC -->
 
 <audio id="music" autoplay loop>
 <source src="music/wedding.mp3">
 </audio>
 
+<!-- HERO -->
 
 <section class="hero">
 
@@ -53,6 +54,7 @@
 
 </section>
 
+<!-- COUNTDOWN -->
 
 <section>
 
@@ -60,15 +62,29 @@
 
 <div class="countdown">
 
-<div><span id="days"></span>дней</div>
-<div><span id="hours"></span>часов</div>
-<div><span id="minutes"></span>минут</div>
-<div><span id="seconds"></span>секунд</div>
+<div>
+<span id="days"></span>
+<p>дней</p>
+</div>
+
+<div>
+<span id="hours"></span>
+<p>часов</p>
+</div>
+
+<div>
+<span id="minutes"></span>
+<p>минут</p>
+</div>
+
+<div>
+<span id="seconds"></span>
+<p>секунд</p>
+</div>
 
 </div>
 
 </section>
-
 
 <!-- RSVP -->
 
@@ -80,11 +96,12 @@
 
 <label>Будете ли вы присутствовать</label>
 
-<select id="presence">
+<select>
+
 <option>Да</option>
 <option>Нет</option>
-</select>
 
+</select>
 
 <label>Что будете пить</label>
 
@@ -99,7 +116,6 @@
 
 </select>
 
-
 <label>С кем придете</label>
 
 <select id="guests">
@@ -111,7 +127,6 @@
 
 </select>
 
-
 <div id="extraGuests"></div>
 
 <button type="submit">
@@ -121,7 +136,6 @@
 </form>
 
 </section>
-
 
 <!-- МЕСТО ПРОВЕДЕНИЯ -->
 
@@ -133,8 +147,10 @@
 
 <p>
 
-<strong>Republic Hall</strong><br>
-Волоколамское ш., 124<br>
+<strong>Republic Hall</strong>
+<br>
+Волоколамское ш., 124
+<br>
 Москва, Россия
 
 </p>
@@ -144,7 +160,8 @@
 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor:CPQjJO2e&ll=37.405937,55.830979&z=16&source=constructor"
 width="100%"
 height="300"
-frameborder="0">
+frameborder="0"
+allowfullscreen>
 </iframe>
 
 </div>
@@ -161,8 +178,7 @@ class="route-btn">
 
 </section>
 
-
-<!-- РАССАДКА -->
+<!-- SEATING -->
 
 <section>
 
@@ -172,16 +188,15 @@ class="route-btn">
 
 </section>
 
-
-<!-- ФОТО ГОСТЕЙ -->
+<!-- QR PHOTO -->
 
 <section>
 
 <h2>Поделитесь фото</h2>
 
-<p>Отсканируйте QR</p>
+<p>Сканируйте QR код</p>
 
-<!-- QR код указывается здесь -->
+<!-- УКАЗАНИЕ QR КОДА -->
 
 <img src="images/qr-photo.jpeg" width="200">
 
@@ -195,7 +210,6 @@ class="route-btn">
 
 </section>
 
-
 <script src="js/app.js"></script>
 <script src="js/countdown.js"></script>
 <script src="js/rsvp.js"></script>
@@ -205,3 +219,4 @@ class="route-btn">
 
 </body>
 </html>
+

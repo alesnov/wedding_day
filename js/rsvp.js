@@ -1,15 +1,16 @@
-const guests = document.getElementById("guests")
-const extra = document.getElementById("extraGuests")
+const guests=document.getElementById("guests")
 
-guests.onchange = () => {
+const extra=document.getElementById("extraGuests")
 
-extra.innerHTML = ""
+guests.onchange=()=>{
 
-let count = guests.value - 1
+extra.innerHTML=""
 
-for (let i = 0; i < count; i++) {
+let count=guests.value-1
 
-extra.innerHTML += `
+for(let i=0;i<count;i++){
+
+extra.innerHTML+=`
 
 <div class="guest-card">
 
@@ -33,3 +34,4 @@ extra.innerHTML += `
 }
 
 }
+

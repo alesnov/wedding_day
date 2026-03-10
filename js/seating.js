@@ -1,4 +1,4 @@
-const map = document.getElementById("seating-map")
+const map=document.getElementById("seating-map")
 
 for(let i=1;i<=6;i++){
 
@@ -9,16 +9,17 @@ table.className="table"
 table.innerHTML=`
 
 <h3>Стол ${i}</h3>
-<p>Гости</p>
+<p>Нажмите чтобы увидеть гостей</p>
 
 `
 
 table.onclick=()=>{
 
-alert("Здесь будут имена гостей")
+alert("Здесь можно указать имена гостей")
 
 }
 
 map.appendChild(table)
 
 }
+
