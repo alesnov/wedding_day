@@ -15,39 +15,45 @@
 
 <body>
 
-<div id="petals"></div>
-
 <div class="music-btn" onclick="toggleMusic()">🎵</div>
 
 <audio id="music" loop>
 <source src="music/wedding.mp3">
 </audio>
 
+
 <section class="hero">
 
 <div class="hero-content">
 
-<h1 class="names">Артур & Диляра</h1>
-
 <div class="hero-text">
-Приглашаем вас на нашу свадьбу
+Приглашаем вас на самое важное событие нашей жизни
 </div>
 
-<div class="date">29 августа 2026</div>
+<div class="names">
+Артур & Диляра
+</div>
+
+<div class="date">
+29 августа 2026
+</div>
 
 </div>
 
 </section>
+
 
 <section class="container fade">
 
 <h2>Дорогие гости</h2>
 
 <p>
+Скоро в нашей жизни состоится очень важное событие — наша свадьба.
 Мы будем счастливы разделить этот день с вами.
 </p>
 
 </section>
+
 
 <section class="container fade">
 
@@ -55,44 +61,66 @@
 
 <div class="countdown">
 
-<div><span id="days"></span><p>дней</p></div>
-<div><span id="hours"></span><p>часов</p></div>
-<div><span id="minutes"></span><p>минут</p></div>
-<div><span id="seconds"></span><p>секунд</p></div>
+<div>
+<span id="days"></span>
+<p>дней</p>
+</div>
+
+<div>
+<span id="hours"></span>
+<p>часов</p>
+</div>
+
+<div>
+<span id="minutes"></span>
+<p>минут</p>
+</div>
+
+<div>
+<span id="seconds"></span>
+<p>секунд</p>
+</div>
 
 </div>
 
 </section>
+
 
 <section class="container fade">
 
-<h2>Программа дня</h2>
+<h2>Детали</h2>
 
-<div class="timeline">
+<div class="cards">
 
-<div class="event">
-<h3>15:00</h3>
-<p>Сбор гостей</p>
+<div class="card">
+<h3>Дата</h3>
+29 августа 2026<br>
+15:00
 </div>
 
-<div class="event">
-<h3>16:00</h3>
-<p>Церемония</p>
+<div class="card">
+<h3>Место</h3>
+Republic Hall
 </div>
 
-<div class="event">
-<h3>17:00</h3>
-<p>Банкет</p>
+<div class="card">
+<h3>Дресс-код</h3>
+
+<div class="colors">
+
+<div style="background:#e6c8d5"></div>
+<div style="background:#f3dfe6"></div>
+<div style="background:#d8a6b7"></div>
+<div style="background:#ffffff"></div>
+
 </div>
 
-<div class="event">
-<h3>21:00</h3>
-<p>Первый танец</p>
 </div>
 
 </div>
 
 </section>
+
 
 <section class="container fade">
 
@@ -101,28 +129,40 @@
 <div class="cards">
 
 <div class="card">
+
 <h3>Подарки</h3>
-Будем рады вкладу в наше свадебное путешествие
+
+Лучшим подарком для нас будет вклад в наше будущее и свадебное путешествие.
+
 </div>
 
+
 <div class="card">
+
 <h3>Цветы</h3>
-Если сомневаетесь с букетом — лучшим подарком будет конверт
+
+Если вы планировали подарить цветы, будем благодарны за вклад в наше путешествие вместо букета.
+
 </div>
 
+
 <div class="card">
+
 <h3>Дети</h3>
-Мы очень любим детей, но формат вечера предполагает взрослую атмосферу.
-Будем благодарны если по возможности вы проведёте этот вечер без малышей.
+
+Мы очень любим детей, но формат праздника предполагает взрослую атмосферу.
+Будем благодарны, если по возможности вы проведёте этот вечер без малышей.
+
 </div>
 
 </div>
 
 </section>
 
+
 <section class="container fade">
 
-<h2>Галерея</h2>
+<h2>Наша галерея</h2>
 
 <div class="gallery">
 
@@ -135,29 +175,11 @@
 
 </section>
 
+
 <div id="lightbox">
 <img id="lightbox-img">
 </div>
 
-<section class="container fade">
-
-<h2>Рассадка гостей</h2>
-
-<div class="tables">
-
-<div class="table">
-<h3>Стол 1</h3>
-<p>Анна<br>Иван<br>Мария</p>
-</div>
-
-<div class="table">
-<h3>Стол 2</h3>
-<p>Сергей<br>Ольга<br>Алексей</p>
-</div>
-
-</div>
-
-</section>
 
 <section class="container fade">
 
@@ -168,9 +190,19 @@
 <input placeholder="Ваше имя">
 
 <select>
-<option>Вы придете?</option>
+<option>Вы будете присутствовать?</option>
 <option>Да</option>
 <option>Нет</option>
+</select>
+
+<select>
+<option>Что будете пить?</option>
+<option>Вино красное</option>
+<option>Вино белое</option>
+<option>Виски</option>
+<option>Коньяк</option>
+<option>Водка</option>
+<option>Не пью</option>
 </select>
 
 <select id="guests">
@@ -189,17 +221,6 @@
 
 </section>
 
-<section class="container fade">
-
-<h2>Поделитесь фото</h2>
-
-<p>
-Сканируйте QR и загрузите фото со свадьбы
-</p>
-
-<img src="images/qr.png" width="200">
-
-</section>
 
 <section class="container fade">
 
@@ -208,24 +229,26 @@
 <iframe
 src="https://yandex.ru/map-widget/v1/?um=constructor%3A9c0c94e3c1f"
 width="100%"
-height="400">
+height="400"
+frameborder="0">
 </iframe>
 
 </section>
 
+
 <section class="container">
 
 <h2>
-Спасибо что будете с нами ❤️
+Спасибо, что будете рядом с нами в этот день ❤️
 </h2>
 
 </section>
+
 
 <script src="js/countdown.js"></script>
 <script src="js/gallery.js"></script>
 <script src="js/guests.js"></script>
 <script src="js/animations.js"></script>
-<script src="js/petals.js"></script>
 <script src="js/music.js"></script>
 
 </body>
