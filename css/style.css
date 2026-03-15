@@ -153,7 +153,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* ИСПРАВЛЕНО: Добавлены стили для calendar-month-wrapper и calendar-year-inline */
+
 .calendar-month-wrapper {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
@@ -692,7 +692,7 @@ body {
     transform: translateY(0);
 }
 
-/* ИСПРАВЛЕНО: Добавлены базовые стили для elegant-text */
+
 .elegant-text {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
@@ -725,7 +725,7 @@ body {
 @media (max-width: 768px) {
     .names {
         font-size: 50px;
-        font-weight: 700; /* ИСПРАВЛЕНО: добавлен жирный шрифт для лучшей читаемости */
+        font-weight: 700;
     }
 
     .hero-photo {
@@ -781,7 +781,6 @@ body {
         font-size: 0.9rem;
     }
 
-    /* ИСПРАВЛЕНО: добавлены стили для календаря на мобильных */
     .calendar-month-wrapper {
         font-size: 1.4rem;
         flex-direction: column;
