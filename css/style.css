@@ -79,11 +79,11 @@ body {
 }
 
 .names {
-    font-family: 'Caveat', cursive;
-    font-size: 80px;
-    font-weight: 400;
-    color: #4a4a4a;
-    margin-bottom: 10px;
+    font-family: 'Caveat', cursive !important;;
+    font-size: 80px !important;;
+    font-weight: 400 !important;;
+    color: #4a4a4a !important;;
+    margin-bottom: 10px !important;;
 }
 
 .date {
