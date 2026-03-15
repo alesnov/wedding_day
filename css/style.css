@@ -79,11 +79,11 @@ body {
 }
 
 .names {
-    font-family: 'Caveat', cursive !important;
-    font-size: 80px !important;
-    font-weight: 400 !important;
-    color: #4a4a4a !important;
-    margin-bottom: 10px !important;
+    font-family: 'Caveat', cursive;
+    font-size: 80px;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin-bottom: 10px;
 }
 
 .date {
@@ -722,91 +722,91 @@ body {
 }
 
 /* АДАПТИВНОСТЬ */
-@media (max-width: 768px) {
-    .names {
-        font-size: 50px;
-        font-weight: 700;
-    }
+/*@media (max-width: 768px) {*/
+/*    .names {*/
+/*        font-size: 50px;*/
+/*        font-weight: 700;*/
+/*    }*/
 
-    .hero-photo {
-        height: 400px;
-    }
+/*    .hero-photo {*/
+/*        height: 400px;*/
+/*    }*/
 
-    .section-title {
-        font-size: 1.8rem;
-        letter-spacing: 4px;
-    }
+/*    .section-title {*/
+/*        font-size: 1.8rem;*/
+/*        letter-spacing: 4px;*/
+/*    }*/
 
-    .countdown {
-        gap: 15px;
-    }
+/*    .countdown {*/
+/*        gap: 15px;*/
+/*    }*/
 
-    .countdown-item {
-        min-width: 80px;
-        padding: 20px 15px;
-    }
+/*    .countdown-item {*/
+/*        min-width: 80px;*/
+/*        padding: 20px 15px;*/
+/*    }*/
 
-    .countdown-item span {
-        font-size: 35px;
-    }
+/*    .countdown-item span {*/
+/*        font-size: 35px;*/
+/*    }*/
 
-    .timeline::before {
-        left: 30px;
-    }
+/*    .timeline::before {*/
+/*        left: 30px;*/
+/*    }*/
 
-    .event,
-    .event:nth-child(even) {
-        justify-content: flex-start;
-        padding-left: 80px;
-        padding-right: 0;
-    }
+/*    .event,*/
+/*    .event:nth-child(even) {*/
+/*        justify-content: flex-start;*/
+/*        padding-left: 80px;*/
+/*        padding-right: 0;*/
+/*    }*/
 
-    .event-time {
-        left: 30px;
-        transform: translateX(-50%);
-    }
+/*    .event-time {*/
+/*        left: 30px;*/
+/*        transform: translateX(-50%);*/
+/*    }*/
 
-    .event-content,
-    .event:nth-child(even) .event-content {
-        margin: 0;
-        max-width: 100%;
-    }
+/*    .event-content,*/
+/*    .event:nth-child(even) .event-content {*/
+/*        margin: 0;*/
+/*        max-width: 100%;*/
+/*    }*/
 
-    .calendar {
-        padding: 20px;
-    }
+/*    .calendar {*/
+/*        padding: 20px;*/
+/*    }*/
 
-    .calendar-day {
-        padding: 10px 5px;
-        font-size: 0.9rem;
-    }
+/*    .calendar-day {*/
+/*        padding: 10px 5px;*/
+/*        font-size: 0.9rem;*/
+/*    }*/
 
-    .calendar-month-wrapper {
-        font-size: 1.4rem;
-        flex-direction: column;
-        gap: 5px;
-    }
+/*    .calendar-month-wrapper {*/
+/*        font-size: 1.4rem;*/
+/*        flex-direction: column;*/
+/*        gap: 5px;*/
+/*    }*/
 
-    .calendar-year-inline {
-        font-size: 1.4rem;
-    }
+/*    .calendar-year-inline {*/
+/*        font-size: 1.4rem;*/
+/*    }*/
 
-    .rsvp {
-        padding: 30px 20px;
-    }
+/*    .rsvp {*/
+/*        padding: 30px 20px;*/
+/*    }*/
 
-    .elegant-text,
-    .invitation-text,
-    .rsvp-text,
-    .contact-info > p,
-    .thanks-text,
-    .event-content p,
-    .detail-card p,
-    .card p,
-    .hero-invitation {
-        font-size: 1.1rem !important;
-        line-height: 1.8 !important;
-    }
-}
+/*    .elegant-text,*/
+/*    .invitation-text,*/
+/*    .rsvp-text,*/
+/*    .contact-info > p,*/
+/*    .thanks-text,*/
+/*    .event-content p,*/
+/*    .detail-card p,*/
+/*    .card p,*/
+/*    .hero-invitation {*/
+/*        font-size: 1.1rem !important;*/
+/*        line-height: 1.8 !important;*/
+/*    }*/
+/*}*/
 
 
