@@ -81,15 +81,9 @@ body {
 .names {
     font-family: 'Marck Script', cursive;
     font-size: 80px;
+    font-weight: 400;
     color: #4a4a4a;
     margin-bottom: 10px;
-}
-
-.ampersand {
-    font-size: 60px;
-    color: #b8a99a;
-    display: block;
-    margin: 10px 0;
 }
 
 .date {
@@ -781,22 +775,6 @@ body {
     text-align: center;
 }
 
-/* === ЕДИНЫЙ СТИЛЬ ТЕКСТА ДЛЯ ВСЕГО САЙТА === */
-/*.elegant-text,*/
-/*.invitation-text,*/
-/*.rsvp-text,*/
-/*.contact-info > p,*/
-/*.thanks-text,*/
-/*.event-content p,*/
-/*.detail-card p,*/
-/*.detail-card p strong,*/
-/*.card p,*/
-/*.hero-invitation {*/
-/*    font-family: 'Playfair Display', serif !important;*/
-/*    font-size: 1.4rem !important;*/
-/*    line-height: 2 !important;*/
-/*    color: #444 !important;*/
-/*}*/
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
