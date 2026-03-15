@@ -153,18 +153,24 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.calendar-month {
+/* ИСПРАВЛЕНО: Добавлены стили для calendar-month-wrapper и calendar-year-inline */
+.calendar-month-wrapper {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 30px;
     color: #8b7355;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 15px;
 }
 
-.calendar-year {
-    font-size: 1rem;
-    color: #999;
+.calendar-year-inline {
+    font-size: 1.8rem;
+    color: #8b7355;
+    font-weight: 400;
 }
 
 .calendar-grid {
@@ -686,14 +692,40 @@ body {
     transform: translateY(0);
 }
 
+/* ИСПРАВЛЕНО: Добавлены базовые стили для elegant-text */
+.elegant-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #444;
+}
+
+/* Анимация появления дополнительных полей */
+.additional-fields {
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dress-code-image {
+    margin-top: 20px;
+    text-align: center;
+}
+
 /* АДАПТИВНОСТЬ */
 @media (max-width: 768px) {
     .names {
         font-size: 50px;
-    }
-
-    .ampersand {
-        font-size: 40px;
+        font-weight: 700; /* ИСПРАВЛЕНО: добавлен жирный шрифт для лучшей читаемости */
     }
 
     .hero-photo {
@@ -749,35 +781,21 @@ body {
         font-size: 0.9rem;
     }
 
+    /* ИСПРАВЛЕНО: добавлены стили для календаря на мобильных */
+    .calendar-month-wrapper {
+        font-size: 1.4rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .calendar-year-inline {
+        font-size: 1.4rem;
+    }
+
     .rsvp {
         padding: 30px 20px;
     }
-}
 
-/* Анимация появления дополнительных полей */
-.additional-fields {
-    animation: slideDown 0.4s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.dress-code-image {
-    margin-top: 20px;
-    text-align: center;
-}
-
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
     .elegant-text,
     .invitation-text,
     .rsvp-text,
@@ -791,6 +809,5 @@ body {
         line-height: 1.8 !important;
     }
 }
-
 
 
