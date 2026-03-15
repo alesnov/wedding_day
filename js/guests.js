@@ -1,6 +1,26 @@
+const attendanceSelect = document.getElementById("attendance");
+const additionalFields = document.getElementById("additionalFields");
 const guestsSelect = document.getElementById("guests");
 const extraGuestsDiv = document.getElementById("extraGuests");
 
+// Показываем/скрываем дополнительные поля в зависимости от ответа
+if (attendanceSelect) {
+    attendanceSelect.addEventListener("change", function() {
+        if (this.value === "yes") {
+            additionalFields.style.display = "block";
+            // Делаем поля обязательными только если выбрано "Да"
+            document.getElementById("drink").setAttribute("required", "required");
+            document.getElementById("guests").setAttribute("required", "required");
+        } else {
+            additionalFields.style.display = "none";
+            // Убираем обязательность полей
+            document.getElementById("drink").removeAttribute("required");
+            document.getElementById("guests").removeAttribute("required");
+        }
+    });
+}
+
+// Обработка дополнительных гостей
 if (guestsSelect) {
     guestsSelect.addEventListener("change", function() {
         const count = parseInt(this.value);
@@ -38,6 +58,7 @@ if (guestsSelect) {
     });
 }
 
+// Обработка отправки формы
 const rsvpForm = document.getElementById("rsvpForm");
 if (rsvpForm) {
     rsvpForm.addEventListener("submit", function(e) {

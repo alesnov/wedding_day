@@ -25,9 +25,8 @@
     <section class="hero">
         <div class="hero-content">
             <img src="images/about/we.jpeg" alt="Артур и Диляра" class="hero-photo">
-            <p class="hero-invitation">Приглашаем вас на главное событие<br>в нашей жизни — день свадьбы!</p>
+            <p class="hero-invitation">Вместе - наш главный маршрут!</p>
             <h1 class="names">Артур <span class="ampersand">и</span> Диляра</h1>
-            <div class="date">29 августа 2026</div>
         </div>
     </section>
 
@@ -153,13 +152,9 @@
             <div class="detail-card">
                 <i class="fas fa-tshirt detail-icon"></i>
                 <h3>Дресс-код</h3>
-                <p>Элегантный вечерний стиль</p>
-                <div class="dress-code-colors">
-                    <div class="color-square" style="background: #2c3e50;" title="Темно-синий"></div>
-                    <div class="color-square" style="background: #8b7355;" title="Коричневый"></div>
-                    <div class="color-square" style="background: #b8a99a;" title="Бежевый"></div>
-                    <div class="color-square" style="background: #d4af37;" title="Золотой"></div>
-                    <div class="color-square" style="background: #f5f1ed;" title="Кремовый"></div>
+                <p>Мы будем очень рады, если вы <br>поддержите цветовую гамму праздника:</p>
+                <div class="dress-code-image">
+                    <img src="images/other/dresscode.jpeg" alt="Цветовая гамма свадьбы" style="width: 100%; max-width: 400px; border-radius: 10px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
@@ -171,7 +166,7 @@
         <div class="cards">
             <div class="card">
                 <i class="fas fa-money-bill-wave card-icon"></i>
-                <h3>Финансовый подарок</h3>
+                <h3>Подарок</h3>
                 <p>Будем рады вкладу в наше свадебное путешествие и совместное будущее</p>
             </div>
 
@@ -191,7 +186,7 @@
 
     <!-- БЛОК 7: ГАЛЕРЕЯ -->
     <section class="container fade">
-        <h2 class="section-title">Наша галерея</h2>
+        <h2 class="section-title">Совместные моменты</h2>
         <div class="gallery">
             <img src="images/gallery/we1.jpeg" alt="Фото 1">
             <img src="images/gallery/we2.jpeg" alt="Фото 2">
@@ -210,7 +205,7 @@
     <!-- БЛОК 8: RSVP -->
     <section class="container fade">
         <h2 class="section-title">Подтвердите присутствие</h2>
-        <p class="rsvp-text">Пожалуйста, подтвердите своё участие до 1 июня 2026 года</p>
+        <p class="rsvp-text">Пожалуйста, подтвердите своё участие до 1 июля 2026 года</p>
 
         <form class="rsvp" id="rsvpForm" action="https://formspree.io/f/xjgegvky" method="POST">
             <div class="form-group">
@@ -227,35 +222,39 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="drink">Что будете пить? *</label>
-                <select id="drink" name="Напиток" required>
-                    <option value="">Выберите...</option>
-                    <option value="red_wine">Вино красное</option>
-                    <option value="white_wine">Вино белое</option>
-                    <option value="vodka">Водка</option>
-                    <option value="cognac">Коньяк</option>
-                    <option value="whiskey">Виски</option>
-                    <option value="none">Не пью</option>
-                </select>
-            </div>
+            <!-- Дополнительные поля (показываются только если выбрано "Да") -->
+            <div id="additionalFields" class="additional-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="drink">Что будете пить? *</label>
+                    <select id="drink" name="Напиток">
+                        <option value="">Выберите...</option>
+                        <option value="red_wine">Вино красное</option>
+                        <option value="white_wine">Вино белое</option>
+                        <option value="vodka">Водка</option>
+                        <option value="cognac">Коньяк</option>
+                        <option value="whiskey">Виски</option>
+                        <option value="jin">Джин</option>
+                        <option value="none">Не пью</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="guests">С кем придете? *</label>
-                <select id="guests" name="Количество_гостей" required>
-                    <option value="">Выберите...</option>
-                    <option value="1">Я один</option>
-                    <option value="2">Я +1</option>
-                    <option value="3">Я +2</option>
-                    <option value="4">Я +3</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="guests">С кем придете? *</label>
+                    <select id="guests" name="Количество_гостей">
+                        <option value="">Выберите...</option>
+                        <option value="1">Я один</option>
+                        <option value="2">Я +1</option>
+                        <option value="3">Я +2</option>
+                        <option value="4">Я +3</option>
+                    </select>
+                </div>
 
-            <div id="extraGuests" class="extra-guests"></div>
+                <div id="extraGuests" class="extra-guests"></div>
 
-            <div class="form-group full-width">
-                <label for="message">Пожелания или особые пожелания</label>
-                <textarea id="message" name="Пожелания" placeholder="Например: аллергии, предпочтения в еде и т.д."></textarea>
+                <div class="form-group full-width">
+                    <label for="message">Пожелания или особые пожелания</label>
+                    <textarea id="message" name="Пожелания" placeholder="Например: аллергии, предпочтения в еде и т.д."></textarea>
+                </div>
             </div>
 
             <button type="submit" class="submit-btn">Отправить ответ</button>
@@ -284,14 +283,13 @@
     <!-- БЛОК 10: БЛАГОДАРНОСТЬ -->
     <section class="container">
         <h2 class="thanks-title">
-            Спасибо что будете с нами ❤️
+            Спасибо, что будете с нами ❤️
         </h2>
         <p class="thanks-text">
             С любовью и нетерпением ждем встречи<br>
             в этот особенный день
         </p>
         <div class="thanks-names">Артур и Диляра</div>
-        <div class="date">29 августа 2026</div>
     </section>
 
     <!-- Scripts -->
