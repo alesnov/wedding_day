@@ -46,6 +46,7 @@ if (guestsSelect) {
                             <option value="vodka">Водка</option>
                             <option value="cognac">Коньяк</option>
                             <option value="whiskey">Виски</option>
+                            <option value="jin">Джин</option>
                             <option value="none">Не пью</option>
                         </select>
                     </div>
