@@ -782,21 +782,21 @@ body {
 }
 
 /* === ЕДИНЫЙ СТИЛЬ ТЕКСТА ДЛЯ ВСЕГО САЙТА === */
-.elegant-text,
-.invitation-text,
-.rsvp-text,
-.contact-info > p,
-.thanks-text,
-.event-content p,
-.detail-card p,
-.detail-card p strong,
-.card p,
-.hero-invitation {
-    font-family: 'Playfair Display', serif !important;
-    font-size: 1.4rem !important;
-    line-height: 2 !important;
-    color: #444 !important;
-}
+/*.elegant-text,*/
+/*.invitation-text,*/
+/*.rsvp-text,*/
+/*.contact-info > p,*/
+/*.thanks-text,*/
+/*.event-content p,*/
+/*.detail-card p,*/
+/*.detail-card p strong,*/
+/*.card p,*/
+/*.hero-invitation {*/
+/*    font-family: 'Playfair Display', serif !important;*/
+/*    font-size: 1.4rem !important;*/
+/*    line-height: 2 !important;*/
+/*    color: #444 !important;*/
+/*}*/
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
