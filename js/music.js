@@ -5,13 +5,6 @@ window.addEventListener("load", () => {
     music.play().catch(() => {});
 });
 
-// document.addEventListener("click", function initMusic() {
-//     if (music.paused) {
-//         music.play().then(() => musicBtn.classList.add("playing")).catch(() => {});
-//     }
-//     document.removeEventListener("click", initMusic);
-// }, { once: true });
-
 document.addEventListener("click", function initMusic() {
     music.play().then(() => {
         if(musicBtn){
@@ -36,4 +29,3 @@ music.addEventListener("pause", () => musicBtn.classList.remove("playing"));
 
 
 
-z

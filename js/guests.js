@@ -63,9 +63,47 @@ if (guestsSelect) {
 const rsvpForm = document.getElementById("rsvpForm");
 if (rsvpForm) {
     rsvpForm.addEventListener("submit", function(e) {
-        e.preventDefault();
-        alert("Спасибо за ваш ответ! Мы получили вашу информацию.");
-        this.submit();
+        e.preventDefault(); // Останавливаем стандартную отправку
+
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.textContent;
+
+        // Показываем процесс загрузки
+        submitBtn.textContent = 'Отправка...';
+        submitBtn.disabled = true;
+
+        // Собираем все данные из формы (включая динамические поля гостей)
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        // ВАШ URL СКРИПТА (Вставьте сюда ссылку из Шага 3)
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyLL6CJUCSrtt8vCAdaAFICw6Obv26UrVCIdx7lKcJa5a-dZ-7n0hDhl_w0bRxM5be5SA/exec';
+
+        fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response.result === "success") {
+                submitBtn.textContent = 'Отправлено! ✓';
+                submitBtn.style.background = '#4CAF50'; // Зеленый цвет
+
+                // Очищаем форму через 2 секунды
+                setTimeout(() => {
+                    this.reset();
+                    additionalFields.style.display = 'none';
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = ''; // Возврат цвета
+                }, 2000);
+            }
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            submitBtn.textContent = 'Ошибка отправки';
+            submitBtn.disabled = false;
+        });
     });
 }
 
